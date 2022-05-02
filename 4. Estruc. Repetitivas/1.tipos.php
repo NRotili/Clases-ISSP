@@ -156,3 +156,9 @@
 // function suma($num1, $num2) {
 //     return $num1 + $num2;
 // }
+
+// include "2.incluir.php";
+// echo $informacion['nombre'];
+
+require "2.incluir.php";
+echo $informacion['nombre'];
