@@ -82,28 +82,28 @@
 //     echo "<hr>";
 // }
 
-// $alumnos = [
-//     [
-//         "nombre" => "Juan",
-//         "edad" => 20,
-//         "notas" => [
-//             "mate" => 10,
-//             "fisica" => 8,
-//             "ingles" => 7
-//         ]
-//     ],
-//     [
-//         "nombre" => "Pedro",
-//         "edad" => 20,
-//         "notas" => [
-//             "mate" => 10,
-//             "fisica" => 8,
-//             "ingles" => 7
-//         ]
-//     ],
-// ];
+$alumnos = [
+    [
+        "nombre" => "Juan",
+        "edad" => 20,
+        "notas" => [
+            "mate" => 10,
+            "fisica" => 8,
+            "ingles" => 7
+        ]
+    ],
+    [
+        "nombre" => "Pedro",
+        "edad" => 20,
+        "notas" => [
+            "Mate" => 10,
+            "Fisica" => 8,
+            "Ingles" => 7
+        ]
+    ],
+];
 
-// //Foreach Alumnos
+//Foreach Alumnos
 // foreach ($alumnos as $alumno) {
 //     echo "Nombre: ".$alumno['nombre']." <br>";
 //     echo "Edad: ".$alumno['edad']." <br>";
@@ -152,6 +152,7 @@
 // }
 
 
+// echo suma(1,2);
 // //utilización de return
 // function suma($num1, $num2) {
 //     return $num1 + $num2;
