@@ -7,16 +7,16 @@ function bienvenida(string $usuario = 'Invitado'):string{
 echo bienvenida('Nicolás');
 
 
-function sumar2(int ...$numeros):int{
+function sumar(int ...$numeros):int{
     return array_sum($numeros);
 }
 echo sumar(1,2,3,4,5);
 
 
-function sumar($numero1, $numero2):int{
-    return $numero1+$numero2;
-}
-echo sumar(1,2,3,4,5);
+// function sumar($numero1, $numero2):int{
+//     return $numero1+$numero2;
+// }
+// echo sumar(1,2);
 
 // date_default_timezone_set('America/Argentina/Buenos_Aires');
 // $date = new DateTime();
