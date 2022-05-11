@@ -11,23 +11,47 @@ echo $varLocal;
 
 
 //Variable global.
-global $varGlobal;
 $varGlobal = "Hola <br>";
 echo $varGlobal;
 function miFuncion2()
 {
-    $GLOBALS["varGlobal"] = "Hola desde función<br>";
+    global $varGlobal;
+    // $GLOBALS['varGlobal'] = "Hola desde función <br>";
+    $varGlobal = "Hola desde función <br>";
 }
 miFuncion2();
 echo $varGlobal;
 
 
+$a = 1;
+$b = 2;
+function Suma()
+{
+    global $a, $b;
+    $b = $a + $b;
+    // $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
+}
+Suma();
+echo $b;
+
+
+//Variable estática
+function test()
+{
+    static $a = 0;
+    echo $a++;
+}
+test();
+test();
+test();
+
+
 //Variable superglobal.
-$_SERVER["SERVER_NAME"];
-$_REQUEST["nombre"];
-$_POST["nombre"];
-$_GET["nombre"];
-$_FILES["archivo"];
-$_ENV["PATH"];
-$_COOKIE["nombre"];
-$_SESSION["nombre"];
+// $_SERVER["SERVER_NAME"];
+// $_REQUEST["nombre"];
+// $_POST["nombre"];
+// $_GET["nombre"];
+// $_FILES["archivo"];
+// $_ENV["PATH"];
+// $_COOKIE["nombre"];
+// $_SESSION["nombre"];
