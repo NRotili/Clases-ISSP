@@ -1,13 +1,13 @@
 <?php
 
-//Variable local.
-$varLocal = "Hola<br>";
-function miFuncion()
-{
-    $varLocal = "Hola desde función <br>";
-}
-miFuncion();
-echo $varLocal; 
+// //Variable local.
+// $varLocal = "Hola<br>";
+// function miFuncion()
+// {
+//     $varLocal = "Hola desde función <br>";
+// }
+// miFuncion();
+// echo $varLocal; 
 
 
 //Variable global.
@@ -23,27 +23,27 @@ miFuncion2();
 echo $varGlobal;
 
 
-$a = 1;
-$b = 2;
-function Suma()
-{
-    global $a, $b;
-    $b = $a + $b;
-    // $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
-}
-Suma();
-echo $b;
+// $a = 1;
+// $b = 2;
+// function Suma()
+// {
+//     global $a, $b;
+//     $b = $a + $b;
+//     // $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
+// }
+// Suma();
+// echo $b;
 
 
-//Variable estática
-function test()
-{
-    static $a = 0;
-    echo $a++;
-}
-test();
-test();
-test();
+// //Variable estática
+// function test()
+// {
+//     static $a = 0;
+//     echo "Valor: ".$a++. "<br>";
+// }
+// test();
+// test();
+// test();
 
 
 //Variable superglobal.
