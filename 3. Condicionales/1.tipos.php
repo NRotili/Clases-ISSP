@@ -12,7 +12,7 @@ $edad = "18";
 // }
 
 //Condicional IF ternario
-// echo (($edad == 18) ? "Edad correcto" : "edad incorrecto") . "<br>";
+echo (($edad >= 18) ? "Mayor de edad" : "Menor de edad") . "<br>";
 
 //Seleccion múltiple Switch
 switch ($nombre) {

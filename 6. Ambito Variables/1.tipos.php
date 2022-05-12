@@ -52,6 +52,6 @@ echo $varGlobal;
 // $_POST["nombre"];
 // $_GET["nombre"];
 // $_FILES["archivo"];
-// $_ENV["PATH"];
+// $_ENV["NAME"];
 // $_COOKIE["nombre"];
 // $_SESSION["nombre"];
