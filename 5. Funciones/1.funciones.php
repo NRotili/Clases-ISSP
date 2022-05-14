@@ -1,21 +1,21 @@
 <?php
+declare(strict_types=1);
 
 // function bienvenida(string $usuario = 'Invitado'):string{
 //     return "Bienvenido $usuario";
 // }
-// echo bienvenida('Nicolás');
+// echo bienvenida('Nico');
 
-// function bienvenida($usuario){
-//     return "Bienvenido $usuario";
+// function bienvenida($usuario = 'Invitado'){
+//     echo "Bienvenido $usuario";
 // }
-// echo bienvenida('Nicolás');
+// bienvenida();
 
 
-declare(strict_types=1);
 function sumar(int ...$numeros):int{
     return array_sum($numeros);
 }
-echo sumar(1,2,3,4,5);
+echo sumar(1,2,3,4,5,6,7);
 
 // function sumar(int $numero1, int $numero2): int
 // {
