@@ -19,8 +19,11 @@ include_once 'Cliente.php';
 // $cliente = Cliente::getByEmail("rot@rot.com");
 // $cliente->delete();
 
-// //READ
-// $clientes = Cliente::all();
+//READ
+$clientes = Cliente::all();
+foreach ($clientes as $cliente) {
+    echo $cliente->nombre . " " . $cliente->apellido . "<br>";
+}
 
 
 //Funcion suma de dos parametros

@@ -13,7 +13,7 @@ class Cliente extends Conexion
         $pre->bind_param("ssss", $this->nombre, $this->apellido, $this->fecnac, $this->email);
         $pre->execute();
     }
-
+    
     //Update
     public function update()
     {
