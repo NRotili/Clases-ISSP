@@ -25,8 +25,9 @@
         <div class="card">
             <div class="card-header">Registro de Paciente</div>
             <div class="card-body">
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <form action="update.php" method="post">
                     <div class="row">
+                        <input type="hidden" name="id" value="<?php echo $paciente->id; ?>">
                         <div class="col-12 col-md-4">
                             <label for="nombre">Nombre</label>
                             <input type="text" value="<?= $paciente->nombre ?>" id="nombre" name="nombre" class="form-control">
@@ -41,7 +42,7 @@
                         </div>
                     </div>
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary btn-block mt-4">Actualizar</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-4" name="save">Actualizar</button>
                     </div>
                 </form>
 

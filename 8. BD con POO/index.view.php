@@ -25,7 +25,7 @@
         <div class="card">
             <div class="card-header">Registro de Paciente</div>
             <div class="card-body">
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <form action="store.php" method="post">
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <label for="nombre">Nombre</label>
@@ -49,32 +49,30 @@
 
         </div>
 
-        <table class="table mt-5">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Fecha Nacimiento</th>
-                    <th colspan="2">Acción<th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php 
+<table class="table mt-5">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Fecha Nacimiento</th>
+            <th colspan="2">Acción<th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($pacientes as $paciente) { ?>
+            <tr>
+                <th scope="row"><?= $paciente->id; ?></th>
+                <td><?= $paciente->nombre; ?></td>
+                <td><?= $paciente->apellido; ?></td>
+                <td><?= date("d/m/Y", strtotime($paciente->fecnac) ) ?></td>
+                <td width="10px"><a href="" class="btn btn-sm btn-danger">Eliminar</a></td>
+                <td width="10px"><a href="edit.php?id=<?= $paciente->id?>" class="btn btn-sm btn-warning">Editar</a></td>
+            </tr>
+        <?php } ?>
 
-                foreach ($pacientes as $paciente) { ?>
-                    <tr>
-                        <th scope="row"><?= $paciente->id; ?></th>
-                        <td><?= $paciente->nombre; ?></td>
-                        <td><?= $paciente->apellido; ?></td>
-                        <td><?= date("m/d/Y", strtotime($paciente->fecnac) ) ?></td>
-                        <td width="10px"><a href="" class="btn btn-sm btn-danger">Eliminar</a></td>
-                        <td width="10px"><a href="edit.php?id=<?= $paciente->id?>" class="btn btn-sm btn-warning">Editar</a></td>
-                    </tr>
-                <?php } ?>
-                
-            </tbody>
-        </table>
+    </tbody>
+</table>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
