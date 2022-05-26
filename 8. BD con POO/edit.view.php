@@ -29,52 +29,25 @@
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" name="nombre" class="form-control">
+                            <input type="text" value="<?= $paciente->nombre ?>" id="nombre" name="nombre" class="form-control">
                         </div>
                         <div class="col-12 col-md-4">
                             <label for="apellido">Apellidos</label>
-                            <input type="text" id="apellido" name="apellido" class="form-control">
+                            <input type="text" value="<?= $paciente->apellido ?>" id="apellido" name="apellido" class="form-control">
                         </div>
                         <div class="col-12 col-md-4">
                             <label for="fecnac">Fecha de nacimiento</label>
-                            <input type="date" id="fecnac" name="fecnac" class="form-control">
+                            <input type="date" value="<?= $paciente->fecnac ?>" id="fecnac" name="fecnac" class="form-control">
                         </div>
                     </div>
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary btn-block mt-4">Crear</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Actualizar</button>
                     </div>
                 </form>
 
             </div>
 
         </div>
-
-        <table class="table mt-5">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Fecha Nacimiento</th>
-                    <th colspan="2">Acción<th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php 
-
-                foreach ($pacientes as $paciente) { ?>
-                    <tr>
-                        <th scope="row"><?= $paciente->id; ?></th>
-                        <td><?= $paciente->nombre; ?></td>
-                        <td><?= $paciente->apellido; ?></td>
-                        <td><?= date("m/d/Y", strtotime($paciente->fecnac) ) ?></td>
-                        <td width="10px"><a href="" class="btn btn-sm btn-danger">Eliminar</a></td>
-                        <td width="10px"><a href="edit.php?id=<?= $paciente->id?>" class="btn btn-sm btn-warning">Editar</a></td>
-                    </tr>
-                <?php } ?>
-                
-            </tbody>
-        </table>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
