@@ -20,7 +20,7 @@ while ($humano->getVida() > 0 && $zombie->getVida() > 0) {
             echo " y decide tomar una poción 💉 para incrementar su vida a <b>" . $zombie->getVida() . "</b> puntos!!!<br><br>";
         } else {
             echo "La suerte está del lado del 🧟 quien tiene lugar para dar su golpe!!<br>";
-            if ($golpeaConArma == 1) {
+            if ($golpeaConArma == 1 && $zombie->getArma() == true) {
 
                 $golpe = $zombie->golpearConArma();
                 $humano->recibirGolpe($golpe);
@@ -51,7 +51,7 @@ while ($humano->getVida() > 0 && $zombie->getVida() > 0) {
             echo " y decide tomar una poción 💉 para incrementar su vida a <b>" . $humano->getVida() . "</b> puntos!!!<br><br>";
         } else {
             echo "La suerte está del lado del 🧔 quien tiene lugar para dar su golpe!!<br>";
-            if ($golpeaConArma == 1) {
+            if ($golpeaConArma == 1 && $humano->getArma() == true) {
                 $golpe = $humano->golpearConArma();
                 $zombie->recibirGolpe($golpe);
 

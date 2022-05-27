@@ -66,8 +66,6 @@ class Zombie
 
     public function sanar()
     {
-        $rand = rand(5,20);
-        $this->vida += $rand;
-
+        $this->vida += rand(5,20);
     }
 }
