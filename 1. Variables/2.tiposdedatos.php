@@ -24,6 +24,7 @@ $datos = array("Nicolás Rotili", 28, 1.70, true, null);
 $datos = ["Nicolás Rotili", 28, 1.70, true, null];
 
 
+
 echo "Array unidimensional: <br>";
 echo "Nombre completo: $datos[0] <br>";
 echo "Edad: $datos[1] <br>";
