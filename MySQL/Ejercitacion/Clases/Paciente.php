@@ -28,5 +28,23 @@ class Paciente extends Conexion
         }
         return $pacientes;
     }
+    
+
+    //Many to many table Medicos
+    public function medicos()
+    {
+        $con = new Conexion();
+        $con->conectar();
+        $pre = mysqli_prepare($con->con, "SELECT * FROM medicos WHERE id IN (SELECT id_medico FROM medico_paciente WHERE id_paciente = ?)");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+        $resultado = $pre->get_result();
+        $medicos = [];
+        while ($medico = $resultado->fetch_object(Medico::class)) {
+            array_push($medicos, $medico);
+        }
+        return $medicos;
+    }
+
 
 }
