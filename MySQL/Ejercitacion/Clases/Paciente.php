@@ -28,7 +28,37 @@ class Paciente extends Conexion
         }
         return $pacientes;
     }
-    
+
+    //Obtengo paciente por ID static
+    public static function getPacienteById($id)
+    {
+        $con = new Conexion();
+        $con->conectar();
+        $pre = mysqli_prepare($con->con, "SELECT * FROM pacientes WHERE id = ?");
+        $pre->bind_param("i", $id);
+        $pre->execute();
+        $resultado = $pre->get_result();
+        $paciente = $resultado->fetch_object(Paciente::class);
+        return $paciente;
+    }
+
+    //Actualizo paciente
+    public function update()
+    {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "UPDATE pacientes SET nombre = ?, apellido = ?, fechanacimiento = ? WHERE id = ?");
+        $pre->bind_param("sssi", $this->nombre, $this->apellido, $this->fechanacimiento, $this->id);
+        $pre->execute();
+    }
+
+    //Borro paciente
+    public function delete()
+    {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "DELETE FROM pacientes WHERE id = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+    }
 
     //Many to many table Medicos
     public function medicos()

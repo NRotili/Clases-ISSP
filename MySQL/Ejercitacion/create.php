@@ -1,6 +1,7 @@
 <?php
 
 include_once './clases/Paciente.php';
+session_start();
 
 if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['fechanacimiento'])) {
     $paciente = new Paciente();

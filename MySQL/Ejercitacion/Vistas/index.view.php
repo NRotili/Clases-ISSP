@@ -14,12 +14,12 @@
 
 <body>
     <div class="container pt-4">
-        <?php if (isset($_SESSION['mensaje'])) : ?>
+        <?php if (isset($_SESSION['info'])){ ?>
             <div class="alert alert-success" role="alert">
-                <?php echo $_SESSION['mensaje']; ?>
-                <?php unset($_SESSION['mensaje']); ?>
+                <?php echo $_SESSION['info']; ?>
+                <?php unset($_SESSION['info']); ?>
             </div>
-            <?php endif; ?>
+        <?php } ?>
         <div class="card">
             <div class="card-header">
                 <a class="btn btn-secondary" href="./create.php" style="float: right;">Nuevo Paciente</a>
@@ -44,10 +44,10 @@
                                 <td><?= $paciente->apellido; ?></td>
                                 <td><?= $paciente->fechanacimiento; ?></td>
                                 <td width="10px">
-                                    <a class="btn btn-primary" href=""><i class="fas fa-pen"></i></a>
+                                    <a class="btn btn-primary" href="./update.php?id=<?= $paciente->id ?>"><i class="fas fa-pen"></i></a>
                                 </td>
                                 <td width="10px">
-                                    <a class="btn btn-danger" href=""><i class="fas fa-trash"></i></a>
+                                    <a class="btn btn-danger" href="./delete.php?id=<?= $paciente->id ?>"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
