@@ -66,7 +66,7 @@
                 <td><?= $paciente->nombre; ?></td>
                 <td><?= $paciente->apellido; ?></td>
                 <td><?= date("d/m/Y", strtotime($paciente->fecnac) ) ?></td>
-                <td width="10px"><a href="" class="btn btn-sm btn-danger">Eliminar</a></td>
+                <td width="10px"><a href="delete.php?id=<?= $paciente->id?>" class="btn btn-sm btn-danger">Eliminar</a></td>
                 <td width="10px"><a href="edit.php?id=<?= $paciente->id?>" class="btn btn-sm btn-warning">Editar</a></td>
             </tr>
         <?php } ?>

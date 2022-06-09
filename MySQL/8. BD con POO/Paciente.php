@@ -37,6 +37,14 @@ class Paciente extends Conexion
         
     }
 
+    public function delete()
+    {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "DELETE FROM pacientes WHERE id = ?");
+        $pre->bind_param("i", $id);
+        $pre->execute();
+    }
+
     public static function getById($id)
     {
         $con = new Conexion();

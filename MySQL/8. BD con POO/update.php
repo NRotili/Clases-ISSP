@@ -6,5 +6,5 @@ if (isset($_REQUEST['save'])) {
     $paciente->apellido = $_REQUEST['apellido'];
     $paciente->fecnac = $_REQUEST['fecnac'];
     $paciente->update();
-    header('Location: index.php?res=Paciente actualizado correctamente');
+    header('Location: index.php');
 }
