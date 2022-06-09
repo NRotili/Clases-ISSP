@@ -41,7 +41,7 @@ class Paciente extends Conexion
     {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "DELETE FROM pacientes WHERE id = ?");
-        $pre->bind_param("i", $id);
+        $pre->bind_param("i", $this->id);
         $pre->execute();
     }
 

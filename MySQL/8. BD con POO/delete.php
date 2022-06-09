@@ -1,7 +1,7 @@
 <?php
 
 // Incluyo Paciente
-include_once './clases/Paciente.php';
+include_once 'Paciente.php';
 //Obtengo por get el ID y el paciente
 $id = $_GET['id'];
 $paciente = Paciente::getById($id);

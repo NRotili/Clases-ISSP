@@ -13,21 +13,11 @@
 <body>
 
     <div class="container">
-        <?php if (isset($_GET['res'])) { ?>
-            <div class="alert alert-success mt-4">
-
-                <?= $_GET['res']; ?>
-
-            </div>
-        <?php } ?>
-
-
-        <div class="card">
+             <div class="card">
             <div class="card-header">Registro de Paciente</div>
             <div class="card-body">
-                <form action="update.php" method="post">
+                <form action="edit.php?id=<?= $paciente->id ?>" method="post">
                     <div class="row">
-                        <input type="hidden" name="id" value="<?php echo $paciente->id; ?>">
                         <div class="col-12 col-md-4">
                             <label for="nombre">Nombre</label>
                             <input type="text" value="<?= $paciente->nombre ?>" id="nombre" name="nombre" class="form-control">
