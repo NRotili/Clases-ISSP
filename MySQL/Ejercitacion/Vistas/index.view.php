@@ -22,6 +22,7 @@
         <?php } ?>
         <div class="card">
             <div class="card-header">
+                <a class="btn btn-secondary" href="./logout.php" style="float: right;">Cerrar sesión</a>
                 <a class="btn btn-secondary" href="./create.php" style="float: right;">Nuevo Paciente</a>
                 <h3>Listado de pacientes</h3>
             </div>

@@ -1,6 +1,6 @@
 <?php
 
-include 'Conexion.php';
+require_once 'Conexion.php';
 
 class Paciente extends Conexion
 {

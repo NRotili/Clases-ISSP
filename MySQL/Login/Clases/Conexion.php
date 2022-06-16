@@ -1,10 +1,11 @@
 <?php
 
+
 class Conexion {
     private $host = "localhost";
     private $user = "root";
     private $pass = "";
-    private $db = "hospital";
+    private $db = "login";
     public $con;
     
     public function conectar() {
@@ -14,5 +15,4 @@ class Conexion {
     public function desconectar() {
         mysqli_close($this->con);
     }
-    
 }
