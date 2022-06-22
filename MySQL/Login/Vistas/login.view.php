@@ -32,12 +32,13 @@
                             </div>
                             <button type="submit" class="btn btn-primary mt-2">Login</button>
                         </form>
-                        <?php if (isset($_SESSION['info'])) : ?>
+
+                        <?php if (isset($_SESSION['info'])){?>
                             <div class="alert alert-danger mt-2">
                                 <?= $_SESSION['info'] ?>
                                 <?php unset($_SESSION['info']) ?>
                             </div>
-                        <?php endif; ?>
+                        <?php }; ?>
                     </div>
                 </div>
             </div>

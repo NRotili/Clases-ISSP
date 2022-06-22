@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Conexion.php';
+require_once 'Medico.php';
 
 class Paciente extends Conexion
 {
@@ -63,9 +64,8 @@ class Paciente extends Conexion
     //Many to many table Medicos
     public function medicos()
     {
-        $con = new Conexion();
-        $con->conectar();
-        $pre = mysqli_prepare($con->con, "SELECT * FROM medicos WHERE id IN (SELECT id_medico FROM medico_paciente WHERE id_paciente = ?)");
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "SELECT * FROM medicos WHERE id IN (SELECT id_medico FROM medico_paciente WHERE id_paciente = ?)");
         $pre->bind_param("i", $this->id);
         $pre->execute();
         $resultado = $pre->get_result();

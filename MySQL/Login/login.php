@@ -10,6 +10,7 @@ if (isset($_SESSION['user'])) {
     if (isset($_POST['user']) && isset($_POST['pass'])) {
         $user = $_POST['user'];
         $pass = sha1($_POST['pass']);
+
         $usuario = Usuario::getUser($user, $pass);
         if ($usuario) {
             $_SESSION['user'] = $usuario;

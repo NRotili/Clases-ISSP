@@ -1,53 +1,189 @@
--- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: hospital
--- ------------------------------------------------------
--- Server version	10.4.24-MariaDB
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 22-06-2022 a las 18:38:31
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `pacientes`
+-- Base de datos: `hospital`
 --
 
-DROP TABLE IF EXISTS `pacientes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `especialidades`
+--
+
+CREATE TABLE `especialidades` (
+  `id` int(11) NOT NULL,
+  `codigo` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `especialidad` varchar(255) COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `especialidades`
+--
+
+INSERT INTO `especialidades` (`id`, `codigo`, `especialidad`) VALUES
+(1, 'BIO01', 'Bioquímico'),
+(2, 'TRA01', 'Traumatólogo'),
+(3, 'CLI01', 'Clínica'),
+(4, 'PE01', 'Pediatría');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `medicos`
+--
+
+CREATE TABLE `medicos` (
+  `id` int(11) NOT NULL,
+  `matricula` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `nombre` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
+  `apellido` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
+  `id_especialidad` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `medicos`
+--
+
+INSERT INTO `medicos` (`id`, `matricula`, `nombre`, `apellido`, `id_especialidad`) VALUES
+(1, '123456', 'Jerónimo', 'Miljevic', 1),
+(2, '654321', 'Sergio', 'Lera', 2),
+(3, '456321', 'Juliana', 'Cioccini', 3),
+(4, '789654', 'Nora', 'Di Fulvio', 4),
+(5, '654789', 'Juan José', 'Mendoza', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `medico_paciente`
+--
+
+CREATE TABLE `medico_paciente` (
+  `id_medico` int(11) NOT NULL,
+  `id_paciente` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `medico_paciente`
+--
+
+INSERT INTO `medico_paciente` (`id_medico`, `id_paciente`) VALUES
+(3, 2),
+(1, 2),
+(1, 7),
+(2, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pacientes`
+--
+
 CREATE TABLE `pacientes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `apellido` varchar(255) NOT NULL,
-  `fechanacimiento` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `fechanacimiento` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pacientes`
+-- Volcado de datos para la tabla `pacientes`
 --
 
-LOCK TABLES `pacientes` WRITE;
-/*!40000 ALTER TABLE `pacientes` DISABLE KEYS */;
-INSERT INTO `pacientes` VALUES (2,'Nicolás','Rotili','1993-06-24'),(3,'Fernando','García','1999-03-02'),(4,'Hernan','Gonzalez','1994-08-07'),(5,'Felipe','Gallardo','1974-07-10'),(6,'Agustin','García','1997-03-05'),(7,'Lucila','Arce','1994-02-21');
-/*!40000 ALTER TABLE `pacientes` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `pacientes` (`id`, `nombre`, `apellido`, `fechanacimiento`) VALUES
+(2, 'Nicolás', 'Rotili', '1993-06-24'),
+(3, 'Fernando', 'García', '1999-03-02'),
+(4, 'Hernan', 'Gonzalez', '1994-08-07'),
+(5, 'Felipe', 'Gallardo', '1974-07-10'),
+(6, 'Agustin', 'García', '1997-03-05'),
+(7, 'Lucila', 'Arce', '1994-02-21');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `especialidades`
+--
+ALTER TABLE `especialidades`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `medicos`
+--
+ALTER TABLE `medicos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `especialidad` (`id_especialidad`);
+
+--
+-- Indices de la tabla `medico_paciente`
+--
+ALTER TABLE `medico_paciente`
+  ADD KEY `id_medico` (`id_medico`),
+  ADD KEY `id_paciente` (`id_paciente`);
+
+--
+-- Indices de la tabla `pacientes`
+--
+ALTER TABLE `pacientes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `especialidades`
+--
+ALTER TABLE `especialidades`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `medicos`
+--
+ALTER TABLE `medicos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `pacientes`
+--
+ALTER TABLE `pacientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `medicos`
+--
+ALTER TABLE `medicos`
+  ADD CONSTRAINT `medicos_ibfk_1` FOREIGN KEY (`id_especialidad`) REFERENCES `especialidades` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `medico_paciente`
+--
+ALTER TABLE `medico_paciente`
+  ADD CONSTRAINT `medico_paciente_ibfk_1` FOREIGN KEY (`id_medico`) REFERENCES `medicos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `medico_paciente_ibfk_2` FOREIGN KEY (`id_paciente`) REFERENCES `pacientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2022-06-09 17:51:03
