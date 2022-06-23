@@ -8,6 +8,8 @@ class Medico extends Conexion {
 
     public $id, $matricula, $nombre, $apellido, $id_especialidad;
 
+
+
     
     public static function getMedicoById($id)
     {
@@ -33,6 +35,7 @@ class Medico extends Conexion {
         $especialidad = $resultado->fetch_object(Especialidad::class);
         return $especialidad;
     }
+
 
     public function pacientes()
     {
