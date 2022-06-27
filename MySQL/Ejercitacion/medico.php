@@ -1,8 +1,5 @@
 <?php
-require_once './Clases/Paciente.php';
-
+require_once './Clases/Medico.php';
 $medico = Medico::getMedicoById(1);
 
-foreach ($medico->pacientes() as $paciente) {
-    echo "$paciente->apellido, $paciente->nombre <br>" ;
-}
+echo $medico->especialidad()->especialidad;

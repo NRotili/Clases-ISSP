@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Conexion.php';
+require_once 'Medico.php';
 
 class Especialidad extends Conexion{
     public $id, $codigo, $especialidad;

@@ -8,8 +8,6 @@ class Medico extends Conexion {
 
     public $id, $matricula, $nombre, $apellido, $id_especialidad;
 
-
-
     
     public static function getMedicoById($id)
     {
