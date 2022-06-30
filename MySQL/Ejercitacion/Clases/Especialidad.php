@@ -16,7 +16,7 @@ class Especialidad extends Conexion{
         $medicos = [];
         while ($medico = $resultado->fetch_object(Medico::class)) {
             array_push($medicos, $medico);
-        }
+        }   
         return $medicos;
     }
 
@@ -32,4 +32,5 @@ class Especialidad extends Conexion{
         return $especialidad;
     }
 
+    
 }

@@ -38,7 +38,7 @@ class Medico extends Conexion {
     public function pacientes()
     {
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "SELECT * FROM pacientes WHERE id IN (SELECT id_paciente FROM medico_paciente WHERE id_medico = ?)");
+        $pre = mysqli_prepare($this->con, "SELECT * FROM pacientes WHERE id IN (SELECT paciente_id FROM medico_paciente WHERE medico_id = ?)");
         $pre->bind_param("i", $this->id);
         $pre->execute();
         $resultado = $pre->get_result();
