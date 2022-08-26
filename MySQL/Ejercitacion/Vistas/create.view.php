@@ -34,6 +34,8 @@
                         <label for="fechanacimiento">Fecha de nacimiento</label>
                         <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento" placeholder="Fecha de nacimiento">
                     </div>
+
+                    
                     <button type="submit" class="btn btn-primary mt-2">Guardar</button>
                 </form>
 
