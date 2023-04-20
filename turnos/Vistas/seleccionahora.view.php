@@ -48,7 +48,7 @@
                                                                                     } ?>" name="dia" placeholder="Fecha">
                     </div>
 
-                    <?php if (empty($turnos)) {
+                    <?php if (!empty($turnos)) {
                         foreach ($turnos as $turno) { ?>
 
                             <div class="form-check">
