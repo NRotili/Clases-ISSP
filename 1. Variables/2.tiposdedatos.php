@@ -11,6 +11,13 @@ $altura = 1.70; //float
 $casado = true; //boolean
 $hijos = null; //null
 
+// Ejemplo de Callable
+// function sumar($num1, $num2) {
+//     return $num1 + $num2;
+// }
+
+// $mi_funcion = 'sumar';
+// echo $mi_funcion(2, 3); // Imprime 5
 
 echo "Nombre completo: $nombreCompleto <br>";
 echo "Edad: $edad <br>";
