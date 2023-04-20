@@ -46,16 +46,16 @@ $dolarHoy=$oficial*1.65;
 //     echo "No hacer nada <br>";
 // }
 
-// switch (true) {
-//     case ($dolarHoy <= 357):
-//         echo "Comprar dólares <br>";
-//         break;
-//     case ($dolarHoy >= 400):
-//         echo "Vender dólares <br>";
-//         break;
-//     default:
-//         echo "No hacer nada <br>";
-// }
+switch (true) {
+    case ($dolarHoy <= 357):
+        echo "Comprar dólares <br>";
+        break;
+    case ($dolarHoy >= 400):
+        echo "Vender dólares <br>";
+        break;
+    default:
+        echo "No hacer nada <br>";
+}
 
 
 $resultado = match (true) {
