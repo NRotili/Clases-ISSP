@@ -22,6 +22,7 @@
                     <th scope="col">Apellido 2</th>
                     <th scope="col">Ciudad</th>
                     <th scope="col">Departamento</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
 
@@ -34,6 +35,15 @@
                         <td><?= $profesor->apellido2 ?></td>
                         <td><?= $profesor->ciudad ?></td>
                         <td><?= $profesor->departamento()->nombre ?></td>
+                        <td>
+                            <!-- btngroup - info, edit, delete -->
+                            <div class="btn-group">
+                                <a href="showProfesor.php?id=<?= $profesor->id ?>" class="btn btn-sm btn-info">Ver</a>
+                                <a href="updateProfesor.php?id=<?= $profesor->id ?>" class="btn btn-sm  btn-warning">Editar</a>
+                                <a href="deleteProfesor.php?id=<?= $profesor->id ?>" class="btn  btn-sm btn-danger">Eliminar</a>
+                            </div>
+
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
