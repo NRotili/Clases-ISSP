@@ -12,6 +12,14 @@
 //     echo $f++; 
 // }
 
+// //DO-WHILE
+// $i=0;
+// do {
+//     echo $i++;
+// } while ($i < 10);
+
+
+
 // for ($i = 1; $i <= 10; $i++) {
 //     echo "<br>";
 //     echo $i;
@@ -154,12 +162,12 @@ $alumnos = [
 
 // echo suma(1,2);
 // //utilización de return
-// function suma($num1, $num2) {
-//     return $num1 + $num2;
-// }
+function suma($num1, $num2) {
+    return $num1 + $num2;
+}
 
-// include "2.incluir.php";
-// echo $informacion['nombre'];
+include "2.incluir.php";
+echo $informacion['nombre'];
 
 require "2.incluir.php";
 echo $informacion['nombre'];
