@@ -3,11 +3,11 @@
 require_once __DIR__ . '/../Model/Profesor.php';
 require_once __DIR__ . '/../Model/Departamento.php';
 
-$profesor = new Profesor();
 $departamentos = Departamento::all();
 
 //Validate if exists post, then create
 if (isset($_POST['nif']) || isset($_POST['nombre']) || isset($_POST['apellido1']) || isset($_POST['apellido2']) || isset($_POST['ciudad']) || isset($_POST['direccion']) || isset($_POST['telefono']) || isset($_POST['fecha_nacimiento']) || isset($_POST['sexo']) || isset($_POST['id_departamento'])) {
+    $profesor = new Profesor();
     $profesor->nif = $_POST['nif'];
     $profesor->nombre = $_POST['nombre'];
     $profesor->apellido1 = $_POST['apellido1'];
@@ -24,3 +24,5 @@ if (isset($_POST['nif']) || isset($_POST['nombre']) || isset($_POST['apellido1']
 
 //Load view
 require_once __DIR__ . '/../Views/createProfesor.view.php';
+
+

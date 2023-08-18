@@ -10,10 +10,12 @@ unset($_SESSION['error_message']);
 require_once __DIR__ . '/../Model/Profesor.php';
 $profesor = Profesor::getById($id);
 
+
 if ($profesor) {
     $profesor->delete();
-    $_SESSION['message'] = 'Profesor eliminado correctamente';
+    //redirecto to Index
+    header('Location: ../Controllers/indexProfesor.php');
 } else {
-    $_SESSION['error_message'] = 'No se ha podido eliminar el profesor';
+    echo "No se ha podido eliminar";
 }
 

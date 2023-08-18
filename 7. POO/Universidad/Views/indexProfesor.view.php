@@ -39,7 +39,7 @@
                             <!-- btngroup - info, edit, delete -->
                             <div class="btn-group">
                                 <a href="showProfesor.php?id=<?= $profesor->id ?>" class="btn btn-sm btn-info">Ver</a>
-                                <a href="updateProfesor.php?id=<?= $profesor->id ?>" class="btn btn-sm  btn-warning">Editar</a>
+                                <a href="editProfesor.php?id=<?= $profesor->id ?>" class="btn btn-sm  btn-warning">Editar</a>
                                 <a href="deleteProfesor.php?id=<?= $profesor->id ?>" class="btn  btn-sm btn-danger">Eliminar</a>
                             </div>
 

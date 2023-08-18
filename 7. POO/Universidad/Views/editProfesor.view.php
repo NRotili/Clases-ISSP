@@ -30,12 +30,12 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <label for="nif" class="form-label">NIF</label>
-                                    <input type="text" class="form-control" id="nif" name="nif" required>
+                                    <input type="text" value="<?= $profesor->nif ?>" class="form-control" id="nif" name="nif" required>
 
                                 </div>
                                 <div class="col-md-3">
                                     <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                    <input type="text" value="<?= $profesor->nombre ?>" class="form-control" id="nombre" name="nombre" required>
 
                                 </div>
                                 <div class="col-md-3">
@@ -99,7 +99,11 @@
                                     <label for="id_departamento" class="form-label">Departamento</label>
                                     <select class="form-select" id="id_departamento" name="id_departamento" required>
                                         <?php foreach ($departamentos as $departamento) : ?>
-                                            <option value="<?= $departamento->id ?>"><?= $departamento->nombre ?></option>
+                                            <?php if ($departamento->id == $profesor->id_departamento) { ?>
+                                                <option value="<?= $departamento->id ?>" selected><?= $departamento->nombre ?></option>
+                                            <?php } else { ?>
+                                                <option value="<?= $departamento->id ?>"><?= $departamento->nombre ?></option>
+                                            <?php } ?>
                                         <?php endforeach; ?>
                                     </select>
 
