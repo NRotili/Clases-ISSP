@@ -11,11 +11,12 @@ class Alumno extends Conexion {
     public $telefono;
     public $fecha_nacimiento;
     public $sexo;
+    public $id_asignaturas;
 
     public function create()
     {
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "INSERT INTO alumnos (nif, nombre, apellido1, apellido2, ciudad, direccion, telefono, fecha_nacimiento, sexo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $pre = mysqli_prepare($this->con, "INSERT INTO alumno (nif, nombre, apellido1, apellido2, ciudad, direccion, telefono, fecha_nacimiento, sexo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $pre->bind_param("sssssssss", $this->nif, $this->nombre, $this->apellido1, $this->apellido2, $this->ciudad, $this->direccion, $this->telefono, $this->fecha_nacimiento, $this->sexo);
         $pre->execute();
     }

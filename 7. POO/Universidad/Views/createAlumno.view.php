@@ -101,14 +101,14 @@
                                 <?php foreach ($asignaturas as $asignatura) { ?>
                                     <div class="col col-4 col-md-4">
                                         <!-- Checkbox list -->
-                                        <input type="checkbox" name="asignaturasSeleccionadas[]" id=""> <?= $asignatura->nombre ?>
+                                        <input type="checkbox" name="asignaturasSeleccionadas[]" value="<?= $asignatura->id ?>"> <?= $asignatura->nombre ?>
 
                                     </div>
                                 <?php } ?>
                             </div>
                             <div class="row mt-2">
                                 <div class="col-12">
-                                    <button class="btn btn-block btn-primary" type="submit">Cargar</button>
+                                    <button name="submit" class="btn btn-block btn-primary" type="submit">Cargar</button>
                                 </div>
                             </div>
 
