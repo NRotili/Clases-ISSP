@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear profesor</title>
+    <title>Crear alumno</title>
 
     <!-- insert last version bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -30,12 +30,12 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <label for="nif" class="form-label">NIF</label>
-                                    <input type="text" value="<?= $profesor->nif ?>" class="form-control" id="nif" name="nif" required>
+                                    <input type="text" class="form-control" id="nif" name="nif" required>
 
                                 </div>
                                 <div class="col-md-3">
                                     <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" value="<?= $profesor->nombre ?>" class="form-control" id="nombre" name="nombre" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
 
                                 </div>
                                 <div class="col-md-3">
@@ -88,31 +88,23 @@
                                 <div class="col-md-6">
                                     <label for="sexo" class="form-label">Sexo</label>
                                     <select class="form-select" id="sexo" name="sexo" required>
-                                        <?php if ($profesor->sexo == 'M') { ?>
-                                            <option value="M" selected>Mujer</option>
-                                            <option value="H">Hombre</option>
-                                        <?php } else { ?>
-                                            <option value="M">Mujer</option>
-                                            <option value="H" selected>Hombre</option>
-                                        <?php } ?>
+                                        <option value="H">Hombre</option>
+                                        <option value="M">Mujer</option>
                                     </select>
 
                                 </div>
 
                                 <!-- Departamento, select -->
-                                <div class="col-md-6">
-                                    <label for="id_departamento" class="form-label">Departamento</label>
-                                    <select class="form-select" id="id_departamento" name="id_departamento" required>
-                                        <?php foreach ($departamentos as $departamento) : ?>
-                                            <?php if ($departamento->id == $profesor->id_departamento) { ?>
-                                                <option value="<?= $departamento->id ?>" selected><?= $departamento->nombre ?></option>
-                                            <?php } else { ?>
-                                                <option value="<?= $departamento->id ?>"><?= $departamento->nombre ?></option>
-                                            <?php } ?>
-                                        <?php endforeach; ?>
-                                    </select>
 
-                                </div>
+                            </div>
+                            <div class="row">
+                                <?php foreach ($asignaturas as $asignatura) { ?>
+                                    <div class="col col-4 col-md-4">
+                                        <!-- Checkbox list -->
+                                        <input type="checkbox" name="asignaturasSeleccionadas[]" id=""> <?= $asignatura->nombre ?>
+
+                                    </div>
+                                <?php } ?>
                             </div>
                             <div class="row mt-2">
                                 <div class="col-12">

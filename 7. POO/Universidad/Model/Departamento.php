@@ -10,7 +10,7 @@ class Departamento extends Conexion {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "INSERT INTO departamento (nombre) VALUES (?)");
         $pre->bind_param("s", $this->nombre);
-        $pre->execute();
+        $pre->execute(); 
     }
 
     public function update()
