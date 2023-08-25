@@ -9,7 +9,7 @@ $asignaturas = Asignatura::all();
 
 //Check if form is submitted
 if (isset($_POST['submit'])) {
-    //Get data from form
+    //Get data from fo rm
     $nif = $_POST['nif'];
     $nombre = $_POST['nombre'];
     $apellido1 = $_POST['apellido1'];

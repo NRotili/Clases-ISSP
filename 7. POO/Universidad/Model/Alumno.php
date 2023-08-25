@@ -19,6 +19,16 @@ class Alumno extends Conexion {
         $pre = mysqli_prepare($this->con, "INSERT INTO alumno (nif, nombre, apellido1, apellido2, ciudad, direccion, telefono, fecha_nacimiento, sexo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $pre->bind_param("sssssssss", $this->nif, $this->nombre, $this->apellido1, $this->apellido2, $this->ciudad, $this->direccion, $this->telefono, $this->fecha_nacimiento, $this->sexo);
         $pre->execute();
+
+        $alumno = $this->getByNif($this->nif);
+        $this->id = $alumno->id;
+
+        foreach ($this->id_asignaturas as $id_asignatura) {
+            $pre = mysqli_prepare($this->con, "INSERT INTO alumno_se_matricula_asignatura (id_alumno, id_asignatura, id_curso_escolar) VALUES (?, ?, 4)");
+            $pre->bind_param("ii", $this->id, $id_asignatura);
+            $pre->execute();
+        }
+        
     }
 
     public function update()
@@ -71,7 +81,7 @@ class Alumno extends Conexion {
     {
         $conexion = new Conexion();
         $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT * FROM alumnos WHERE nif = ?");
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM alumno WHERE nif = ?");
         $pre->bind_param("s", $nif);
         $pre->execute();
         $res = $pre->get_result();
