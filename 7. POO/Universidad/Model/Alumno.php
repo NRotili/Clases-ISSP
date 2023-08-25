@@ -1,5 +1,9 @@
 <?php
 
+require_once __DIR__ . '/../Model/Conexion.php';
+require_once __DIR__ . '/../Model/Asignatura.php';
+
+
 class Alumno extends Conexion {
     public $id;
     public $nif;
@@ -67,7 +71,7 @@ class Alumno extends Conexion {
     {
         $conexion = new Conexion();
         $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT * FROM alumnos WHERE id = ?");
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM alumno WHERE id = ?");
         $pre->bind_param("i", $id);
         $pre->execute();
         $res = $pre->get_result();
@@ -89,6 +93,24 @@ class Alumno extends Conexion {
         $alumno = $res->fetch_object(Alumno::class);
 
         return $alumno;
+    }
+
+    //asignaturas
+    public function asignaturas()
+    {
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $pre = mysqli_prepare($conexion->con, "SELECT asignatura.* FROM asignatura INNER JOIN alumno_se_matricula_asignatura ON asignatura.id = alumno_se_matricula_asignatura.id_asignatura WHERE alumno_se_matricula_asignatura.id_alumno = ?");
+        $pre->bind_param("i", $this->id);
+        $pre->execute();
+        $res = $pre->get_result();
+
+        $asignaturas = array();
+        while ($asignatura = $res->fetch_object(Asignatura::class)) {
+            array_push($asignaturas, $asignatura);
+        }
+
+        return $asignaturas;
     }
 
 }
