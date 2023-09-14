@@ -2,7 +2,7 @@
 
 $ch = curl_init();
 
-/*
+
 //Petición GET.
 
 curl_setopt($ch, CURLOPT_URL, "https://reqres.in/api/users/2");
@@ -18,12 +18,12 @@ if (curl_errno($ch)) {
     $info = json_decode($response, true);
     // var_dump($info);
 }
-foreach ($info['data'] as $key => $value) {
-    echo "$key: $value <br>";
+foreach ($info['data'] as $value) {
+    echo $value;
 }
 curl_close($ch);
 
-*/
+
 
 
 // // Petición POST
@@ -53,34 +53,34 @@ curl_close($ch);
 // curl_close($ch);
 
 
-$curl = curl_init();
-$serie = "ozark";
-curl_setopt_array($curl, [
-    CURLOPT_URL => "https://online-movie-database.p.rapidapi.com/auto-complete?q=$serie",
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_ENCODING => "",
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 30,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => "GET",
-    CURLOPT_HTTPHEADER => [
-        "X-RapidAPI-Host: online-movie-database.p.rapidapi.com",
-        "X-RapidAPI-Key: bd0ace7c08msh1050f24e09ffc07p13aecajsn9a5d15210467"
-    ],
-]);
+// $curl = curl_init();
+// $serie = "ozark";
+// curl_setopt_array($curl, [
+//     CURLOPT_URL => "https://online-movie-database.p.rapidapi.com/auto-complete?q=$serie",
+//     CURLOPT_RETURNTRANSFER => true,
+//     CURLOPT_FOLLOWLOCATION => true,
+//     CURLOPT_ENCODING => "",
+//     CURLOPT_MAXREDIRS => 10,
+//     CURLOPT_TIMEOUT => 30,
+//     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+//     CURLOPT_CUSTOMREQUEST => "GET",
+//     CURLOPT_HTTPHEADER => [
+//         "X-RapidAPI-Host: online-movie-database.p.rapidapi.com",
+//         "X-RapidAPI-Key: bd0ace7c08msh1050f24e09ffc07p13aecajsn9a5d15210467"
+//     ],
+// ]);
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
+// $response = curl_exec($curl);
+// $err = curl_error($curl);
 
-curl_close($curl);
+// curl_close($curl);
 
-if ($err) {
-    echo "cURL Error #:" . $err;
-} else {
-    echo $response;
-    $info = json_decode($response, true); //True para que devuelva array asociativo
-}
+// if ($err) {
+//     echo "cURL Error #:" . $err;
+// } else {
+//     echo $response;
+//     $info = json_decode($response, true); //True para que devuelva array asociativo
+// }
 
 
 ?>
@@ -101,28 +101,26 @@ if ($err) {
 
     <div class="container">
         <div class="row">
-            <?php foreach ($info['d'] as $value) { ?>
-                <div class="col col-12 col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                         <h2><?= $value['l'] ?></h2>
-                        </div>
-                        <div class="card-body">
-                            <?php if (isset($value['i'])) {?>
-                                <img class="image-fluid" width="100vh"  src="<?= $value['i']['imageUrl'] ?>">
-                            <? } else { ?>
-                                <strong>Sin imagen</strong>
-                            <?php } ?>
-                        </div>
-                        <div class="card-footer">
-                            footer
-                        </div>
-                    </div>
-                </div>
-
-
-
-            <?php } ?>
+            <!-- Table table-strped -->
+            <div class="col col-12 col-md-6">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                            <th>Avatar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td><?= $info['data']['first_name'] ?></td>
+                                <td><?= $info['data']['last_name'] ?></td>
+                                <td><?= $info['data']['email'] ?></td>
+                                <td><img src="<?= $info['data']['avatar'] ?>" alt=""></td>
+                            </tr>
+                    </tbody>
+                </table>
             <div class="col col-12 col-md-6">
                 <div class="card">
                     <div class="card-header">
