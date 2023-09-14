@@ -74,10 +74,10 @@
         <!-- Button previous and next -->
         <div class="row mt-3">
             <div class="col col-12 col-md-6">
-                <a href="#" class="btn btn-primary">Previous</a>
+                <a href="" class="btn btn-primary">Previous</a>
             </div>
             <div class="col col-12 col-md-6 text-right">
-                <a href="#" class="btn btn-primary">Next</a>
+                <a href="<?= $info['info']['next'] ?>" class="btn btn-primary">Next</a>
             </div>
         </div>
     </div>
