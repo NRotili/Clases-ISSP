@@ -18,51 +18,29 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col col-12 col-md-3 ">
-                        <div class="card" >
-                            <img class="card-img-top" src="https://picsum.photos/200" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Lorem, .</h5>
-                                <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum accusamus unde facilis minima adipisci, hic impedit porro laborum laudantium mollitia eum a nulla id sed explicabo pariatur recusandae. Rem, et.</p>
-                            </div>
-                        </div>
-                        
-                    </div>
 
+                <?php foreach ($info['results'] as $personaje) { ?>
                     <div class="col col-12 col-md-3 ">
-                        <div class="card" >
-                            <img class="card-img-top" src="https://picsum.photos/200" alt="Card image cap">
+                        <div class="card mt-2" >
+                            <img class="card-img-top" src="<?= $personaje['image'] ?>" alt="Card image cap">
                             <div class="card-body">
-                            <h5 class="card-title">Lorem, .</h5>
-                                <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum accusamus unde facilis minima adipisci, hic impedit porro laborum laudantium mollitia eum a nulla id sed explicabo pariatur recusandae. Rem, et.</p>
-                            </div>
-                        </div>
-                        
-                    </div>
+                                <h5 class="card-title"><?= $personaje['name'] ?></h5>
+                                <p class="card-text">
+                                    <span><strong>Género:</strong><?php
+                                     if($personaje['gender'] == "Male"){ echo "👦";} else { echo "👧";} ?></span>
+                                </p>
+                                <p class="card-text">
+                                    <span><strong>Origen:</strong> <?= $personaje['origin']['name'] ?></span>
 
-                    <div class="col col-12 col-md-3 ">
-                        <div class="card" >
-                            <img class="card-img-top" src="https://picsum.photos/200" alt="Card image cap">
-                            <div class="card-body">
-                            <h5 class="card-title">Lorem, .</h5>
-                                
-                                <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum accusamus unde facilis minima adipisci, hic impedit porro laborum laudantium mollitia eum a nulla id sed explicabo pariatur recusandae. Rem, et.</p>
+                                </p>
                             </div>
                         </div>
                         
                     </div>
+                <?php } ?>
+                    
 
-                    <div class="col col-12 col-md-3 ">
-                        <div class="card" >
-                            <img class="card-img-top" src="https://picsum.photos/200" alt="Card image cap">
-                            <div class="card-body">
-                            <h5 class="card-title">Lorem, .</h5>
-                                
-                                <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum accusamus unde facilis minima adipisci, hic impedit porro laborum laudantium mollitia eum a nulla id sed explicabo pariatur recusandae. Rem, et.</p>
-                            </div>
-                        </div>
-                        
-                    </div>
+                    
                     
                     <!-- Add other card margin between card 1 -->
                     
@@ -74,10 +52,17 @@
         <!-- Button previous and next -->
         <div class="row mt-3">
             <div class="col col-12 col-md-6">
-                <a href="" class="btn btn-primary">Previous</a>
+                <form action="" method="post">
+                <input type="hidden" name="prev" value="<?php if(isset($info['info']['prev'])){ echo $info['info']['prev']; }else{ echo "#"; } ?>">
+                <button name="submitPrev" type="submit"class="btn btn-primary">Previous</button> 
+                </form>
             </div>
             <div class="col col-12 col-md-6 text-right">
-                <a href="<?= $info['info']['next'] ?>" class="btn btn-primary">Next</a>
+                <form action="" method="post">                
+                    <input type="hidden"  name="next" value="<?php if(isset($info['info']['next'])){ echo $info['info']['next']; }else{ echo "#"; } ?>">
+                <button name="submitNext" class="btn btn-primary" type="submit" >Next</button>
+                </form>
+
             </div>
         </div>
     </div>

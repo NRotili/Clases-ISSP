@@ -3,10 +3,20 @@
 
 
 //get https://rickandmortyapi.com/api/character 
+if (isset($_POST['submitNext'])) {
+	$api = $_POST['next'];
+	
+} elseif(isset($_POST['prev'])) {
+	$api = $_POST['prev'];
+} else {
+	$api = "https://rickandmortyapi.com/api/character";
+
+}
+
 
 $ch = curl_init();
 
-curl_setopt($ch, CURLOPT_URL, "https://rickandmortyapi.com/api/character");
+curl_setopt($ch, CURLOPT_URL, $api);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $response = curl_exec($ch);
