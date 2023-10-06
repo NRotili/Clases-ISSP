@@ -22,12 +22,12 @@
 
        
         		
-		// for ($i = 0; $i < sizeof($detail['code']); $i++) {
-        //         array_push($items, array(
-        //             "Código de item" => $detail['code'][$i],
-        //             "Cantidad" => $detail['qty'][$i]
-        //         ));
-		// }
+		for ($i = 0; $i < sizeof($detail['code']); $i++) {
+                array_push($items, array(
+                    "Código de item" => $detail['code'][$i],
+                    "Cantidad" => $detail['qty'][$i]
+                ));
+		}
 		echo "<pre>";
 		print_r($items);
 		echo "</pre>";

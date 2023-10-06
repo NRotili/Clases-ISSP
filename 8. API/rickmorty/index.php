@@ -6,7 +6,7 @@
 if (isset($_POST['submitNext'])) {
 	$api = $_POST['next'];
 	
-} elseif(isset($_POST['prev'])) {
+} elseif(isset($_POST['submitPrev'])) {
 	$api = $_POST['prev'];
 } else {
 	$api = "https://rickandmortyapi.com/api/character";
