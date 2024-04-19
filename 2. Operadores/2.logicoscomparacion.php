@@ -27,3 +27,8 @@ echo (($edad >= 18 && $edad <= 30) ? 'Si':'No') . "<br>"; //true
 
 //Operador O
 echo (($edad <= 18 || $edad >= 28) ? 'Si':'No') . "<br>"; //true
+
+// Operador ===
+$numero = 28;
+$numero2 = "28";
+echo (($numero === $numero2) ? 'Si':'No') . "<br>"; //false

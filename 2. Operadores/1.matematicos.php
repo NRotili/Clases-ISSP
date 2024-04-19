@@ -22,7 +22,7 @@ $división = 100/3;
 echo "División: $división <br>";
 
 //Operador módulo (resto de la división)
-$resto = 10%3;
+$resto = 5%2;
 echo "Resto: $resto <br>";
 
 //Operador multiplicación

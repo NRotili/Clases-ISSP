@@ -4,20 +4,12 @@
 
 $nombre = "Nicolás"; //string
 $apellido = "-Rotili"; //string
-$nombreCompleto = "$nombre y $apellido"; //string
-$nombreCompleto = '$nombre $apellido'; //string
+$nombreCompleto = "$nombre y $apellido"; //Nicolas y -Rotili
+$nombreCompleto2 = '$nombre $apellido';  //$nombre $apellido
 $edad = 28; //int
 $altura = 1.70; //float
 $casado = true; //boolean
 $hijos = null; //null
-
-// Ejemplo de Callable
-// function sumar($num1, $num2) {
-//     return $num1 + $num2;
-// }
-
-// $mi_funcion = 'sumar';
-// echo $mi_funcion(2, 3); // Imprime 5
 
 echo "Nombre completo: $nombreCompleto <br>";
 echo "Edad: $edad <br>";
@@ -30,13 +22,12 @@ echo "<hr>";
 $datos = array("Nicolás Rotili", 28, 1.70, true, null);
 $datos = ["Nicolás Rotili", 28, 1.70, true, null];
 
-
-
 echo "Array unidimensional: <br>";
 echo "Nombre completo: $datos[0] <br>";
 echo "Edad: $datos[1] <br>";
 echo "Altura: $datos[2] <br>";
 echo "Casado: $datos[3] <br>";
+// echo $datos;
 var_dump($datos);
 echo "<hr>";
 
@@ -110,7 +101,8 @@ $coches = [
 echo "Array multidimensional: <br>";
 echo "Marca: ".$coches[0]['marca']." <br>";
 echo "Modelo: ". $coches[0]['modelo']." <br>";
-echo "Modelo: ". $coches[0]['domicilio']['categoria']." <br>";
+// echo "Modelo: ". $coches[0]['domicilio']." <br>";
+var_dump($coches[0]['domicilio']);
 echo "Año: ". $coches[0]['año']." <br>";
 echo "Marca: ". $coches[1]['marca']." <br>";
 echo "Modelo: ". $coches[1]['modelo']." <br>";

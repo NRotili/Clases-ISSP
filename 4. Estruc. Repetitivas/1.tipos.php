@@ -1,10 +1,10 @@
 <?php
 
-//WHILE LOOP
+// WHILE LOOP
 // $i = 1;
 // while ($i <= 10):
-//     echo $i;
 //     $i++;
+//     echo $i;
 // endwhile;
 
 // $f = 1;
@@ -20,9 +20,9 @@
 
 
 
-// for ($i = 1; $i <= 10; $i++) {
-//     echo "<br>";
-//     echo $i;
+// for ($i = 50; $i >= -10; $i--) {
+//     // echo "<br>";
+//     echo "$i,";
 // }
 
 // //array multidimensional
@@ -109,9 +109,18 @@ $alumnos = [
             "Ingles" => 7
         ]
     ],
+    [
+        "nombre" => "Maria",
+        "edad" => 20,
+        "notas" => [
+            "mate" => 10,
+            "fisica" => 8,
+            "ingles" => 7
+        ]
+    ]
 ];
 
-//Foreach Alumnos
+// //Foreach Alumnos
 // foreach ($alumnos as $alumno) {
 //     echo "Nombre: ".$alumno['nombre']." <br>";
 //     echo "Edad: ".$alumno['edad']." <br>";
@@ -122,9 +131,9 @@ $alumnos = [
 //     echo "<hr>";
 // }
 
-//Foreach Alumnos
+// // Foreach Alumnos
 // foreach ($alumnos as $key => $alumno) {
-//     echo "Nombre: ".$alumno['nombre']." <br>";
+//     echo $key . " : ". $alumno['nombre']." <br>";
 //     echo "Edad: ".$alumno['edad']." <br>";
 //     echo "Notas: <br>";
 //     foreach ($alumno['notas'] as $key => $nota) {
@@ -133,41 +142,56 @@ $alumnos = [
 //     echo "<hr>";
 // }
 
-// //Break;
+// // //Break;
 
-// $i = 0;
-// while (++$i) {
-//     switch ($i) {
-//     case 5:
-//         echo "En 5, salgo del switch pero 
-//             continúo ejecutando el while.<br />";
-//         break 1; 
-//     case 10:
-//         echo "En 10; salgo del switch y del while.<br />";
-//         break 2;  
-//     default:
-//         break;
-//     }
+// // $i = 0;
+// // while (++$i) {
+// //     switch ($i) {
+// //     case 5:
+// //         echo "En 5, salgo del switch pero 
+// //             continúo ejecutando el while.<br />";
+// //         break 1; 
+// //     case 10:
+// //         echo "En 10; salgo del switch y del while.<br />";
+// //         break 2;  
+// //     default:
+// //         break;
+// //     }
+// // }
+
+// //mostrar valores pares for y continue
+
+// // for ($i = 0; $i <= 10; ++$i) {
+// //     if ($i % 2 !=0) {	
+// //         continue;
+// //     }
+// //     echo "$i\n";
+// // }
+
+
+// // echo suma(1,2);
+// // //utilización de return
+// function suma($num1, $num2) {
+//     return $num1 + $num2;
 // }
 
-//mostrar valores pares for y continue
+// include "2.incluir.php";
+// echo $informacion['nombre'];
 
-// for ($i = 0; $i <= 10; ++$i) {
-//     if ($i % 2 !=0) {	
-//         continue;
-//     }
-//     echo "$i\n";
-// }
+// require "2.incluir.php";
+// echo $informacion['nombre'];
 
-
-// echo suma(1,2);
-// //utilización de return
-function suma($num1, $num2) {
-    return $num1 + $num2;
+//Tabla de multiplicar del 7 con for
+for ($i = 1; $i <= 10; $i++) {
+    echo "7 x $i = ". 7 * $i . "<br>";
 }
 
-include "2.incluir.php";
-echo $informacion['nombre'];
+$numero = 1;
+while ($numero <= 100) {
+    if ($numero % 2 == 0) {
+        echo $numero . "<br>";
+    }
+    $numero++;
+}
 
-require "2.incluir.php";
-echo $informacion['nombre'];
+
