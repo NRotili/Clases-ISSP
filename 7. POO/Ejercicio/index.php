@@ -5,6 +5,7 @@ include_once 'Humano.php';
 
 $humano = new Humano;
 $zombie = new Zombie;
+$zombie->setVida(200);
 
 echo "Humano y Zombie se suben al ring y comienza la batalla!!<br><br>";
 

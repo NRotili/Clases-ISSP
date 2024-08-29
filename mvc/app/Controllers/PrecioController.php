@@ -9,6 +9,8 @@ class PrecioController extends Controller
 
     public function show($code)
     {
+
+        return $code;
         
         $uri = URL_API . $code;
         $ch = curl_init();

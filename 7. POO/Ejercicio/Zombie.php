@@ -30,6 +30,7 @@ class Zombie
     public function setVida(int $vida)
     {
         $this->vida = $vida;
+        echo "Mi vida ha sido actualizada a $this->vida puntos!!<br><br>";
     }
 
     public function setArma(bool $arma)

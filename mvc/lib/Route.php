@@ -9,22 +9,23 @@ class Route
 
     public static function get($uri, $callback)
     {
-        $uri = trim($uri, 'public/');
+        $uri = trim($uri, '/mvc/public');
         self::$routes['GET'][$uri] = $callback;
     }
 
     public static function post($uri, $callback)
     {
-        $uri = trim($uri, 'public/');
+        $uri = trim($uri, '/mvc/public');
         self::$routes['POST'][$uri] = $callback;
     }
 
     public static function dispatch()
     {
         $uri = $_SERVER['REQUEST_URI'];
-        $uri = trim($uri, 'public/');
+        $uri = trim($uri, '/mvc/public');
         $method = $_SERVER['REQUEST_METHOD'];
 
+        echo $uri;
 
         foreach (self::$routes[$method] as $route => $callback) {
 

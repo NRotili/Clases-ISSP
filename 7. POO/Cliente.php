@@ -3,14 +3,15 @@ include_once 'Conexion.php';
 class Cliente extends Conexion
 {
 
-    public $nombre, $apellido, $fecnac, $email;
+    public $id, $nombre, $apellido, $fecnac, $email, $edad;
 
     //Create
     public function create()
     {
+    
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "INSERT INTO clientes (nombre, apellido, fecnac, email) VALUES (?, ?, ?, ?)");
-        $pre->bind_param("ssss", $this->nombre, $this->apellido, $this->fecnac, $this->email);
+        $pre = mysqli_prepare($this->con, "INSERT INTO clientes (nombre, apellido, fecnac, email, edad) VALUES (?, ?, ?, ?, ?)");
+        $pre->bind_param("ssssi", $this->nombre, $this->apellido, $this->fecnac, $this->email, $this->edad);
         $pre->execute();
     }
     
@@ -18,8 +19,8 @@ class Cliente extends Conexion
     public function update()
     {
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "UPDATE clientes SET nombre = ?, apellido = ?, fecnac = ? WHERE email = ?");
-        $pre->bind_param("ssss", $this->nombre, $this->apellido, $this->fecnac, $this->email);
+        $pre = mysqli_prepare($this->con, "UPDATE clientes SET nombre = ?, apellido = ?, fecnac = ?, edad = ?, email = ? WHERE id = ?");
+        $pre->bind_param("ssss", $this->nombre, $this->apellido, $this->fecnac, $this->edad, $this->email, $this->id);
         $pre->execute();
     }
 
@@ -49,16 +50,16 @@ class Cliente extends Conexion
         return $clientes;
     }
 
-    //Obtener cliente por correo
-    public static function getByEmail($email)
+    //Obtener cliente por id
+    public static function getById($id)
     {
         $conexion = new Conexion();
         $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT * FROM clientes WHERE email = ?");
-        $pre->bind_param("s", $email);
+        $pre = mysqli_prepare($conexion->con, "SELECT * FROM clientes WHERE id = ?");
+        $pre->bind_param("i", $id);
         $pre->execute();
-        $res = $pre->get_result();
+        $res = $pre->get_result(); //nombre, apellido, email, fecnac, edad
 
-        return $res->fetch_object(Cliente::class);
+        return $res->fetch_object(Cliente::class); //devolve a quien me invocó el objeto del tipo cliente.
     }
 }
