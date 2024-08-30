@@ -44,4 +44,11 @@ class Alumno extends Conexion {
         $pre->execute();
     }
 
+    public function update() {
+        $this->conectar();
+        $pre = mysqli_prepare($this->con, "UPDATE alumnos SET nombre = ?, apellido = ?, fecha_nacimiento = ? WHERE id = ?");
+        $pre->bind_param("sssi", $this->nombre, $this->apellido, $this->fecha_nacimiento, $this->id);
+        $pre->execute();
+    }
+
 }

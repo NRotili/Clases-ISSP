@@ -29,6 +29,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
+                        <a href="createAlumno.php" class="btn btn-success float-right">Agregar Alumno</a>
                         <h2 class="pull-left">Lista de Usuarios</h2>
                     </div>
                     <table id="listaAlumnos" class="table table-sm table-striped table-bordered" style="width:100%">
