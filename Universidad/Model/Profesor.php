@@ -30,4 +30,15 @@ class Profesor extends Conexion {
     public function materia() {
         return Materia::getById($this->materia_id);
     }
+
+    public static function getById($id) {
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $result = mysqli_prepare($conexion->con, "SELECT * FROM profesores WHERE id = ?");
+        $result->bind_param("i", $id);
+        $result->execute();
+        $valorDb = $result->get_result();
+        $profesor = $valorDb->fetch_object(Profesor::class);
+        return $profesor;
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Conexion.php';
+require_once 'Alumno.php';
 require_once 'Profesor.php';
 
 class Materia extends Conexion {
@@ -17,7 +18,7 @@ class Materia extends Conexion {
     public static function all() {
         $conexion = new Conexion();
         $conexion->conectar();
-        $result = mysqli_prepare($conexion->con, "SELECT * FROM materias");
+        $result = mysqli_prepare($conexion->con, "SELECT * FROM materias ORDER BY nombre ASC");
         $result->execute();
         $valoresDb = $result->get_result();
         $materias = [];
@@ -50,6 +51,21 @@ class Materia extends Conexion {
             $profesores[] = $profesor;
         }
         return $profesores;
+    }
+
+    public function alumnos() {
+        $this->conectar();
+        $result = mysqli_prepare($this->con, "SELECT alumnos.* FROM alumnos INNER JOIN alumno_materia ON alumnos.id = alumno_materia.alumno_id WHERE alumno_materia.materia_id = ?");
+        $result->bind_param("i", $this->id);
+        $result->execute();
+        $valoresDb = $result->get_result();
+
+        $alumnos = [];
+        while ($alumno = $valoresDb->fetch_object(Alumno::class)) {
+            $alumnos[] = $alumno;
+        }
+
+        return $alumnos;
     }
 
 }
