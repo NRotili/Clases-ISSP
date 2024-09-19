@@ -1,33 +1,30 @@
 <?php
 
+$api = "https://rickandmortyapi.com/api/";
 
+$cliente = curl_init();
 
-//get https://rickandmortyapi.com/api/character 
-if (isset($_POST['submitNext'])) {
-	$api = $_POST['next'];
-	
-} elseif(isset($_POST['submitPrev'])) {
-	$api = $_POST['prev'];
+curl_setopt($cliente, CURLOPT_URL, $api . "character");
+curl_setopt($cliente, CURLOPT_RETURNTRANSFER, true);
+
+// try {
+    
+//     $respuesta = curl_exec($cliente);
+//     $personajes = json_decode($respuesta);
+
+// } catch (\Throwable $th) {
+//     echo "Error: " . $th->getMessage();
+// }
+
+if (curl_errno($cliente)) {
+    echo "Error: " . curl_error($cliente);
 } else {
-	$api = "https://rickandmortyapi.com/api/character";
-
+    $respuesta = curl_exec($cliente);
+    $personajes = json_decode($respuesta);
 }
 
+curl_close($cliente);
 
-$ch = curl_init();
+require "indexRick.view.php";
 
-curl_setopt($ch, CURLOPT_URL, $api);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-$response = curl_exec($ch);
-
-if (curl_errno($ch)) {
-	echo curl_error($ch);
-} else {
-	$info = json_decode($response, true);
-	// var_dump($info);
-}
-
-curl_close($ch);
-
-require 'index.view.php';
+// var_dump($personajes);

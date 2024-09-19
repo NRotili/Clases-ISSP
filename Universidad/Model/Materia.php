@@ -15,6 +15,7 @@ class Materia extends Conexion {
         $pre->execute();
     }
 
+
     public static function all() {
         $conexion = new Conexion();
         $conexion->conectar();
@@ -47,6 +48,7 @@ class Materia extends Conexion {
         $valoresDb = $result->get_result();
 
         $profesores = [];
+        
         while ($profesor = $valoresDb->fetch_object(Profesor::class)) {
             $profesores[] = $profesor;
         }

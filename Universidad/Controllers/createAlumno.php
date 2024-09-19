@@ -13,6 +13,8 @@ if(isset($_POST['enviarFormulario'])){
     $alumno->fecha_nacimiento = $fecha_nacimiento;
     $alumno->create();
 
+    
+
     // echo "Nombre: $nombre, Apellido: $apellido, Fecha de Nacimiento: $fecha_nacimiento";
 
     // echo "Se presionó el botón de enviar formulario";
