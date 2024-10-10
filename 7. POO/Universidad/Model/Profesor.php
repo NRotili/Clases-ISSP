@@ -23,6 +23,8 @@ class Profesor extends Conexion {
         $pre = mysqli_prepare($this->con, "INSERT INTO profesor (nif, nombre, apellido1, apellido2, ciudad, direccion, telefono, fecha_nacimiento, sexo, id_departamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $pre->bind_param("sssssssssi", $this->nif, $this->nombre, $this->apellido1, $this->apellido2, $this->ciudad, $this->direccion, $this->telefono, $this->fecha_nacimiento, $this->sexo, $this->id_departamento);
         $pre->execute();
+
+        return Profesor::getById($pre->insert_id);
     }
 
     public function update()

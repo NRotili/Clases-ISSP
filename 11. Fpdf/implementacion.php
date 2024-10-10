@@ -9,7 +9,10 @@ $pdf->SetFont('Arial','B',16);
 $pdf->Cell(40,10,utf8_decode('¡Hola, Mundo!'));
 $pdf->Ln(10);
 
-$pdf->Output('I', 'hola.pdf', true);
+// $pdf->Output('I', 'hola.pdf', true);
+
+//Save to directory
+$pdf->Output('F', 'PDF/hola.pdf', true);
 
 
 ?>

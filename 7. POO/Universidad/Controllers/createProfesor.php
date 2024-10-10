@@ -19,7 +19,8 @@ if (isset($_POST['nif']) || isset($_POST['nombre']) || isset($_POST['apellido1']
     $profesor->sexo = $_POST['sexo'];
     $profesor->id_departamento = $_POST['id_departamento'];
 
-    $profesor->create();
+    $profesorCreado = $profesor->create();
+
 }
 
 //Load view
