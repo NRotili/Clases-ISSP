@@ -13,7 +13,6 @@ if (isset($_POST['submitNext'])) {
 
 }
 
-
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, $api);

@@ -5,27 +5,27 @@ $apellido = "Rotili";
 $edad = "18";
 
 //Condicional IF
-// if ($nombre == "Nicolás") {
-//     echo "Nombre correcto <br>";
-// } else {
-//     echo "Nombre incorrecto <br>";
-// };
+if ($nombre == "Nicolás") {
+    echo "Nombre correcto <br>";
+} else {
+    echo "Nombre incorrecto <br>";
+}
 
 // Condicional IF ternario
 // echo (($edad >= 18) ? "Mayor de edad" : "Menor de edad") . "<br>";
 
 // //Seleccion múltiple Switch
-switch ($nombre) {
-    case "Nicolás":
-        echo "Nombre correcto <br>";
-        break;
-    case "Rotilli":
-        echo "Apellido correcto <br>";
-        break;
-    default:
-        echo "Nombre incorrecto <br>";
-        break;
-};
+// switch ($nombre) {
+//     case "Nicolás":
+//         echo "Nombre correcto <br>";
+//         break;
+//     case "Rotilli":
+//         echo "Apellido correcto <br>";
+//         break;
+//     default:
+//         echo "Nombre incorrecto <br>";
+//         break;
+// };
 
 
 // // //Match

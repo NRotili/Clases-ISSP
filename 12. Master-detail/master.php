@@ -14,7 +14,13 @@ if(isset($_POST['enviar'])){
         ));
     }
 
-    print_r($items);
+    // // print_r($items);
+    // foreach ($items as $item) {
+    //     # code...
+    //     echo $item['code']."<br>";
+    //     echo $item['price']."<br>";
+    //     echo $item['qty']."<br>";
+    // }
 }
 ?>
 

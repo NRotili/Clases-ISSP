@@ -29,6 +29,24 @@
             </div>
         </div>
     </div>
+
+    <div class="row mt-3">
+        <div class="col col-12 col-md-6">
+
+            <form action="" method="post">
+                <input type="hidden" name="prev" value="<?= $personajes->info->prev; ?>">
+                <button type="submit" class="btn btn-primary">Anterior</button>
+            </form>
+
+        </div>
+        <div class="col col-12 col-md-6 text-right">
+                
+                <form action="" method="post">
+                    <input type="hidden" name="next" value="<?= $personajes->info->next; ?>">
+                    <button type="submit" class="btn btn-primary">Siguiente</button>
+                </form>
+        </div>
+    </div>
 </div>
     
 

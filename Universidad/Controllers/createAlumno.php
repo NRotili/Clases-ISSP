@@ -13,6 +13,7 @@ if(isset($_POST['enviarFormulario'])){
     $alumno->fecha_nacimiento = $fecha_nacimiento;
     $alumno->create();
 
+
     
 
     // echo "Nombre: $nombre, Apellido: $apellido, Fecha de Nacimiento: $fecha_nacimiento";
@@ -23,3 +24,19 @@ if(isset($_POST['enviarFormulario'])){
 }
 
 require_once __DIR__ .'/../Views/createAlumno.view.php';
+
+//Funcion mayor de 3 numeros por parámetro, pueden ser iguales o distintos
+
+
+//var dump con todo lo que viene por POST
+
+//var_dump($_POST);
+
+//funcion esPar
+
+//function esPar($numero){
+//    if($numero % 2 == 0){
+//        return true;
+//    } else {
+//        return false;
+//    }

@@ -1,10 +1,18 @@
 <?php
 
-$api = "https://rickandmortyapi.com/api/";
+if(isset($_POST["next"])){
+    $api = $_POST["next"];
+} elseif(isset($_POST["prev"])){
+    $api = $_POST["prev"];
+} else {
+    $api = "https://rickandmortyapi.com/api/character";
+}
+
+// $api = "https://rickandmortyapi.com/api/";
 
 $cliente = curl_init();
 
-curl_setopt($cliente, CURLOPT_URL, $api . "character");
+curl_setopt($cliente, CURLOPT_URL, $api);
 curl_setopt($cliente, CURLOPT_RETURNTRANSFER, true);
 
 // try {
