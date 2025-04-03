@@ -1,36 +1,36 @@
 <?php
   if (isset($_POST["enviar"]))
 	{
-		// echo "<pre>";
-		// //print_r($_POST);
-		// echo "</pre>";
+		// // echo "<pre>";
+		// // //print_r($_POST);
+		// // echo "</pre>";
 		
-		// $head = $_POST["head"];
-		$detalles = $_POST["item"];
-        print_r($detalles);
-		// echo "Head Looping Foreach <br/>";
-		// foreach ($head as $k => $v)
-		// {
-		// 	echo $k . " = " . $v . "<br/>";
-		// }
-		// echo "<hr/>Head Tanpa Looping <br/>";
-		// echo "Nomor Faktur : ". $head["nofaktur"] . "<br/>";
-		// echo "Nama Kasir : ". $head["namakasir"] ."<br/><br/>";
+		// // $head = $_POST["head"];
+		// $detalles = $_POST["item"];
+        // print_r($detalles);
+		// // echo "Head Looping Foreach <br/>";
+		// // foreach ($head as $k => $v)
+		// // {
+		// // 	echo $k . " = " . $v . "<br/>";
+		// // }
+		// // echo "<hr/>Head Tanpa Looping <br/>";
+		// // echo "Nomor Faktur : ". $head["nofaktur"] . "<br/>";
+		// // echo "Nama Kasir : ". $head["namakasir"] ."<br/><br/>";
 		
-		$items = array();
+		// $items = array();
 
 
        
         		
-		for ($i = 0; $i < sizeof($detail['code']); $i++) {
-                array_push($items, array(
-                    "Código de item" => $detail['code'][$i],
-                    "Cantidad" => $detail['qty'][$i]
-                ));
-		}
-		echo "<pre>";
-		print_r($items);
-		echo "</pre>";
+		// for ($i = 0; $i < sizeof($detail['code']); $i++) {
+        //         array_push($items, array(
+        //             "Código de item" => $detail['code'][$i],
+        //             "Cantidad" => $detail['qty'][$i]
+        //         ));
+		// }
+		// echo "<pre>";
+		// print_r($items);
+		// echo "</pre>";
 		
 	}
 ?>
@@ -59,7 +59,7 @@
             <th>Action</th>
         </tr>
         <tbody id="itemlist">
-			<tr>
+			<!-- <tr>
 				<td><input type="hidden" name="item[code][]" value="ITEM001">ITEM001</td>
 				<td>Item 1</td>
 				<td><input type="text" class="span2" name="item[price][]" value="5000"></td>
@@ -72,7 +72,7 @@
 				<td><input type="text" class="span2" name="item[price][]" value="10000"></td>
 				<td><input type="text" class="span2" name="item[qty][]" value="10"></td>
 				<td><button class="remove-fila">Eliminar</button></td>
-			</tr>
+			</tr> -->
         </tbody>
     </table>
     <input type="submit" name="enviar" value="Save"/>
