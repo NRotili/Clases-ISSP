@@ -1,25 +1,33 @@
 <?php 
 
 if(isset($_POST['enviar'])){
-    $detalles = $_POST['item'];
-    // print_r($detalles);
+    // $detalles = $_POST['item'];
+    // // print_r($detalles);
 
-    $items = array();
+    // $items = array();
 
-    for($i=0; $i<count($detalles['code']); $i++){
-        array_push($items, array(
-            'code' => $detalles['code'][$i],
-            'price' => $detalles['price'][$i],
-            'qty' => $detalles['qty'][$i]
-        ));
-    }
+    // for($i=0; $i<count($detalles['code']); $i++){
+    //     array_push($items, array(
+    //         'code' => $detalles['code'][$i],
+    //         'price' => $detalles['price'][$i],
+    //         'qty' => $detalles['qty'][$i]
+    //     ));
+    // }
 
+<<<<<<< HEAD
     // // print_r($items);
     // foreach ($items as $item) {
     //     # code...
     //     echo $item['code']."<br>";
     //     echo $item['price']."<br>";
     //     echo $item['qty']."<br>";
+=======
+    // print_r($items);
+    // for($i=0; $i<count($items); $i++){
+    //     echo $items[$i]['code'] . "<br>";
+    //     echo $items[$i]['price'] . "<br>";
+    //     echo $items[$i]['qty'] . "<br>";
+>>>>>>> 707beb31161da97b8bce617340fe02e4c1d6eab8
     // }
 }
 ?>
@@ -38,7 +46,7 @@ if(isset($_POST['enviar'])){
 
         <tbody id="itemlist">
 
-            <tr>
+            <!-- <tr>
                 <td><input type="hidden" value="ITEM001" name="item[code][]">ITEM001</td>
                 <td>Item 1</td>
                 <td><input type="text" value="50" name="item[price][]" id=""></td>
@@ -51,7 +59,7 @@ if(isset($_POST['enviar'])){
                 <td><input type="text" value="1000" name="item[price][]" id=""></td>
                 <td><input type="text" value="10" name="item[qty][]" id=""></td>
                 <td><button class="remover-fila">Eliminar</button></td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
     <input type="submit" name="enviar" value="Save">

@@ -142,56 +142,98 @@ $alumnos = [
 //     echo "<hr>";
 // }
 
-// // //Break;
+//Break;
 
-// // $i = 0;
-// // while (++$i) {
-// //     switch ($i) {
-// //     case 5:
-// //         echo "En 5, salgo del switch pero 
-// //             continúo ejecutando el while.<br />";
-// //         break 1; 
-// //     case 10:
-// //         echo "En 10; salgo del switch y del while.<br />";
-// //         break 2;  
-// //     default:
-// //         break;
-// //     }
-// // }
+// $i = 0;
+// while (++$i) {
+//     switch ($i) { // recibo 10
+//         case 5:
+//             echo "En 5, salgo del switch pero 
+//             continúo ejecutando el while.<br />";
+//             break 1;
+//         case 10:
+//             echo "En 10; salgo del switch y del while.<br />";
+//             break 2;
+//         default:
+//             break;
+//     }
+// }
 
-// //mostrar valores pares for y continue
+//mostrar valores pares for y continue
 
-// // for ($i = 0; $i <= 10; ++$i) {
-// //     if ($i % 2 !=0) {	
-// //         continue;
-// //     }
-// //     echo "$i\n";
-// // }
+// for ($i = 0; $i <= 10; ++$i) {
+//     if ($i % 2 !=0) {	
+//         continue;
+//     }
+//     echo "$i\n";
+// }
 
 
-// // echo suma(1,2);
+//Estructura RAND
+
+// $random= rand(1,10);
+// echo $random;
+
+
+// echo suma(1,2);
 // // //utilización de return
 // function suma($num1, $num2) {
 //     return $num1 + $num2;
 // }
 
-// include "2.incluir.php";
+// include_once "2.incluirOK.php";
+// // echo $informacion['nombre'];
+
+// // require "2.incluirOK.php";
+// echo "Hola después de require";
 // echo $informacion['nombre'];
 
-// require "2.incluir.php";
-// echo $informacion['nombre'];
+// //Tabla de multiplicar del 7 con for
+// for ($i = 1; $i <= 10; $i++) {
+//     echo "7 x $i = " . 7 * $i . "<br>";
+// }
 
-//Tabla de multiplicar del 7 con for
-for ($i = 1; $i <= 10; $i++) {
-    echo "7 x $i = ". 7 * $i . "<br>";
+// $numero = 1;
+// while ($numero <= 100) {
+//     if ($numero % 2 == 0) {
+//         echo $numero . "<br>";
+//     }
+//     $numero++;
+// }
+
+$arregloEjercicio = [];
+for ($i=0; $i < 50; $i++) { 
+    # code...
+    // $arregloDe50Numeros[$i] = rand(1,10);
+    array_push($arregloEjercicio, rand(1,10));
 }
 
-$numero = 1;
-while ($numero <= 100) {
-    if ($numero % 2 == 0) {
-        echo $numero . "<br>";
-    }
-    $numero++;
-}
+// $contador = 0;
+// foreach ($arregloEjercicio as $numero){
+//     // echo $numero . "<br>";
+//     // echo $contador . " : " . $numero . "<br>";
+//     if ($numero == 5) {
+//         echo "El número 5 ha sido encontrado en la posición $contador <br>";
+//     } 
+//     $contador++;
+// }
+
+// var_dump($arregloDe50Numeros);
+
+// foreach ($arregloEjercicio as $indice => $numero) {
+//     # code...
+//     if ($numero == 5) {
+//         echo "El número 5 ha sido encontrado en la posición $indice <br>";
+//     } 
+// }
+
+// $arreglo = array_find($arregloEjercicio, function($numero) {
+//     return $numero == 5;
+// });
+
+var_dump($arregloEjercicio);
+
+echo array_search(5, $arregloEjercicio);
+
 
 
