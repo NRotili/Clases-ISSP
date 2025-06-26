@@ -2,10 +2,10 @@
 
 class Conexion
 {
-    protected $con;
+    public $conexion;
 
     public function conectar()
     { 
-        $this->con = mysqli_connect("localhost", "root", "", "poo");
+        $this->conexion = mysqli_connect("localhost", "root", "", "issp2025");
     }
 }

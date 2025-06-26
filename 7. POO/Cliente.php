@@ -4,28 +4,25 @@ class Cliente extends Conexion
 {
 
     public $id, $nombre, $apellido, $fecnac, $email, $edad;
-
-    //Create
-    public function create()
+    public function crear()
     {
-    
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "INSERT INTO clientes (nombre, apellido, fecnac, email, edad) VALUES (?, ?, ?, ?, ?)");
-        $pre->bind_param("ssssi", $this->nombre, $this->apellido, $this->fecnac, $this->email, $this->edad);
-        $pre->execute();
+        $preparacion = mysqli_prepare($this->conexion, "INSERT INTO clientes (nombre, apellido, fecnac, email, edad) VALUES (?, ?, ?, ?, ?)");
+        $preparacion->bind_param("ssssi", $this->nombre, $this->apellido, $this->fecnac, $this->email, $this->edad);
+        $preparacion->execute();
     }
-    
+
     //Update
-    public function update()
+    public function actualizar()
     {
         $this->conectar();
-        $pre = mysqli_prepare($this->con, "UPDATE clientes SET nombre = ?, apellido = ?, fecnac = ?, edad = ?, email = ? WHERE id = ?");
-        $pre->bind_param("ssss", $this->nombre, $this->apellido, $this->fecnac, $this->edad, $this->email, $this->id);
-        $pre->execute();
+        $preparacion = mysqli_prepare($this->conexion, "UPDATE clientes SET nombre = ?, apellido = ?, fecnac = ?, edad = ?, email = ?");
+        $preparacion->bind_param("sssss", $this->nombre, $this->apellido, $this->fecnac, $this->edad, $this->email);
+        $preparacion->execute();
     }
 
     //Delete
-    public function delete()
+    public function eliminar()
     {
         $this->conectar();
         $pre = mysqli_prepare($this->con, "DELETE FROM clientes WHERE email = ?");
@@ -51,15 +48,16 @@ class Cliente extends Conexion
     }
 
     //Obtener cliente por id
-    public static function getById($id)
+    public static function obtenerPorId($id)
     {
-        $conexion = new Conexion();
-        $conexion->conectar();
-        $pre = mysqli_prepare($conexion->con, "SELECT * FROM clientes WHERE id = ?");
-        $pre->bind_param("i", $id);
-        $pre->execute();
-        $res = $pre->get_result(); //nombre, apellido, email, fecnac, edad
-
-        return $res->fetch_object(Cliente::class); //devolve a quien me invocó el objeto del tipo cliente.
+        // SELECT * FROM `clientes` WHERE `id` = 1
+        $conexionAMysql = new Conexion();
+        $conexionAMysql->conectar();
+        $preparacion = mysqli_prepare($conexionAMysql->conexion, "SELECT * FROM clientes WHERE id = ?");
+        $preparacion->bind_param("i", $id);
+        $preparacion->execute();
+        $resultado = $preparacion->get_result(); //nombre, apellido, email, fecnac, edad
+ 
+        return $resultado->fetch_object(Cliente::class); //devolve a quien me invocó el objeto del tipo cliente.
     }
 }

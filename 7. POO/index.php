@@ -1,5 +1,49 @@
 <?php
 
+require_once 'Cliente.php';
+
+$cliente = Cliente::obtenerPorId(1);
+//  var_dump($cliente);
+echo $cliente->nombre . " " . $cliente->apellido . "<br>";
+$cliente->nombre = "Alan";
+echo $cliente->nombre . " " . $cliente->apellido . "<br>";
+$cliente->apellido = "Rodriguez";
+echo $cliente->nombre . " " . $cliente->apellido . "<br>";
+$cliente->actualizar();
+
+
+// $cliente = new Cliente();
+// $cliente->nombre = "Damaris";
+// $cliente->apellido = "Ramallo";
+// $cliente->fecnac = "2003-01-01";
+// $cliente->email = "rdamaris@prueba.com";
+// $cliente->edad = 21;
+// $cliente->crear();
+// require_once 'Usuario.php';
+// $user = new Usuario;
+// $user->user = "admin";
+// $user->pass = "1234";
+// $user->crear();
+
+// echo "Cliente creado exitosamente.<br>"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 include_once 'Cliente.php';
 
 //CREATE
