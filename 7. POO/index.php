@@ -1,15 +1,55 @@
 <?php
 
 require_once 'Cliente.php';
+require_once 'Ciudad.php';
 
-$cliente = Cliente::obtenerPorId(1);
-//  var_dump($cliente);
-echo $cliente->nombre . " " . $cliente->apellido . "<br>";
-$cliente->nombre = "Alan";
-echo $cliente->nombre . " " . $cliente->apellido . "<br>";
-$cliente->apellido = "Rodriguez";
-echo $cliente->nombre . " " . $cliente->apellido . "<br>";
-$cliente->actualizar();
+// $ciudad = Ciudad::obtenerPorId(1);
+// $clientes= $ciudad->clientes();
+// echo "En ".$ciudad->nombre." viven los siguientes clientes: <br>";
+// foreach ($clientes as $cliente) {
+//     echo $cliente->nombre . "<br>";
+// }
+// var_dump($clientes);
+
+$cliente = Cliente::obtenerPorId(2);
+$productos =$cliente->productos();
+// var_dump($productos);
+foreach ($productos as $producto) {
+    echo "Producto: ". $producto->nombre . "<br>";
+}
+
+// echo "El cliente ". $cliente->nombre . ' ' . $cliente->apellido . " vive en la ciudad de ". $cliente->ciudad()->nombre . " y su código postal es " . $cliente->ciudad()->cod_postal . " y pertenece a la provincia de ". $cliente->ciudad()->provincia()->nombre;
+
+// var_dump($cliente);
+// var_dump($cliente->ciudad());
+// $clientesTotales = Cliente::todos();
+// var_dump($clientesTotales);
+// foreach ($clientesTotales as $cliente) {
+//     echo $cliente->nombre . " " . $cliente->apellido . "<br>";
+// }
+
+// var_dump($cliente);
+
+
+
+
+
+
+
+// $cliente = Cliente::obtenerPorId(1);
+// //  var_dump($cliente);
+// echo $cliente->nombre . " " . $cliente->apellido . "<br>";
+// $cliente->nombre = "Alan";
+// echo $cliente->nombre . " " . $cliente->apellido . "<br>";
+// $cliente->apellido = "Rodriguez";
+// echo $cliente->nombre . " " . $cliente->apellido . "<br>";
+// $cliente->actualizar();
+
+// $todosLosClientes = Cliente::all();
+// // var_dump($todosLosClientes);
+// foreach ($todosLosClientes as $cliente) {
+//     echo $cliente->nombre . " " . $cliente->apellido . "<br>";
+// }
 
 
 // $cliente = new Cliente();
