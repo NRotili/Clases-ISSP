@@ -1,7 +1,9 @@
 <?php
 
-require_once 'Cliente.php';
-require_once 'Ciudad.php';
+require_once __DIR__ . '/../Model/Cliente.php';
+require_once __DIR__ . '/../Model/Ciudad.php';
+
+// ';
 
 // $ciudad = Ciudad::obtenerPorId(1);
 // $clientes= $ciudad->clientes();
@@ -11,12 +13,12 @@ require_once 'Ciudad.php';
 // }
 // var_dump($clientes);
 
-$cliente = Cliente::obtenerPorId(2);
-$productos =$cliente->productos();
-// var_dump($productos);
-foreach ($productos as $producto) {
-    echo "Producto: ". $producto->nombre . "<br>";
-}
+// $cliente = Cliente::obtenerPorId(2);
+// $productos =$cliente->productos();
+// // var_dump($productos);
+// foreach ($productos as $producto) {
+//     echo "Producto: ". $producto->nombre . "<br>";
+// }
 
 // echo "El cliente ". $cliente->nombre . ' ' . $cliente->apellido . " vive en la ciudad de ". $cliente->ciudad()->nombre . " y su código postal es " . $cliente->ciudad()->cod_postal . " y pertenece a la provincia de ". $cliente->ciudad()->provincia()->nombre;
 
@@ -84,7 +86,7 @@ foreach ($productos as $producto) {
 
 
 
-include_once 'Cliente.php';
+// include_once 'Cliente.php';
 
 //CREATE
 // $cliente = new Cliente;

@@ -1,7 +1,7 @@
 <?php
-include_once 'Conexion.php';
-include_once 'Ciudad.php';
-include_once 'Producto.php';
+include_once __DIR__ . '/../Model/Conexion.php';
+include_once __DIR__ . '/../Model/Ciudad.php';
+include_once __DIR__ . '/../Model/Producto.php';
 class Cliente extends Conexion
 {
     public $id, $nombre, $apellido, $fecnac, $email, $edad, $id_ciudad;
