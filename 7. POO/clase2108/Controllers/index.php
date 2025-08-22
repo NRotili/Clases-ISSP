@@ -3,6 +3,21 @@
 require_once __DIR__ . '/../Model/Cliente.php';
 require_once __DIR__ . '/../Model/Ciudad.php';
 
+
+
+//Todo el código
+$clientes = Cliente::todos();
+
+
+//Cargo la vista
+require_once __DIR__ . '/../Views/index.view.php';
+
+
+
+
+
+
+
 // ';
 
 // $ciudad = Ciudad::obtenerPorId(1);
