@@ -44,4 +44,20 @@ class Ciudad extends Conexion {
     }
 
 
+       public static function todos()
+    {
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $preparacion = mysqli_prepare($conexion->conexion, "SELECT * FROM ciudades");
+        $preparacion->execute();
+        $resultado = $preparacion->get_result();
+
+        $ciudades = array();
+        while ($ciudad = $resultado->fetch_object(Ciudad::class)) {
+            array_push($ciudades, $ciudad);
+        }
+        return $ciudades;
+    }
+
+
 }

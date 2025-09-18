@@ -8,43 +8,50 @@
 </head>
 
 <body>
-    <form action="">
+    <form action="guardarCliente.php" method="POST">
         <div class="row">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required>
+            <input type="text" class="form-control" id="nombre" name="nombre" >
 
         </div>
         <div class="row">
 
             <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="apellido" name="apellido" required>
+            <input type="text" class="form-control" id="apellido" name="apellido" >
 
         </div>
 
         <div class="row">
 
             <label for="fecnac" class="form-label">Fecha Nacimiento</label>
-            <input type="text" class="form-control" id="fecnac" name="fecnac" required>
+            <input type="text" class="form-control" id="fecnac" name="fecnac" >
 
         </div>
         <div class="row">
 
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" required>
+            <input type="text" class="form-control" id="email" name="email" >
 
         </div>
         <div class="row">
 
             <label for="edad" class="form-label">Edad</label>
-            <input type="text" class="form-control" id="edad" name="edad" required>
+            <input type="text" class="form-control" id="edad" name="edad" >
 
         </div>
         <div class="row">
 
             <label for="id_ciudad" class="form-label">Ciudad</label>
-            <input type="text" class="form-control" id="id_ciudad" name="id_ciudad" required>
+            <select name="id_ciudad" id="">
+                <?php foreach ($ciudades as $ciudad) { ?>
+                    <option value="<?= $ciudad->id ?>"><?= $ciudad->nombre ?></option>
+                <?php } ?>
+            </select>
+    
 
         </div>
+
+        <button type="submit">Enviar</button>
 
     </form>
 

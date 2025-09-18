@@ -20,6 +20,7 @@
                 <th>Email</th>
                 <th>Edad</th>
                 <th>Ciudad</th>
+                <th colspan="2">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +34,13 @@
                     <td><?= $cliente->email ?></td>
                     <td><?= $cliente->edad ?></td>
                     <td><?= $cliente->ciudad()->nombre  ?></td>
+                    <td><a href="editarCliente.php?idCliente=<?= $cliente->id?>">Editar</a></td>
+                    <td>
+                        <form action="eliminarCliente.php" method="POST">
+                            <input type="hidden" name="id" value="<?= $cliente->id ?>">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </td>
                 </tr>
             <?php } ?>
             <!-- ENDFOREACH -->

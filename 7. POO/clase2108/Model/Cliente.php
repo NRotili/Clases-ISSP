@@ -44,8 +44,8 @@ class Cliente extends Conexion
     public function actualizar()
     {
         $this->conectar();
-        $preparacion = mysqli_prepare($this->conexion, "UPDATE clientes SET nombre = ?, apellido = ?, fecnac = ?, edad = ?, email = ? WHERE id = ?");
-        $preparacion->bind_param("sssisi", $this->nombre, $this->apellido, $this->fecnac, $this->edad, $this->email, $this->id);
+        $preparacion = mysqli_prepare($this->conexion, "UPDATE clientes SET nombre = ?, apellido = ?, fecnac = ?, edad = ?, email = ?, id_ciudad = ? WHERE id = ?");
+        $preparacion->bind_param("sssisii", $this->nombre, $this->apellido, $this->fecnac, $this->edad, $this->email,$this->id_ciudad, $this->id);
         $preparacion->execute();
     }
 
