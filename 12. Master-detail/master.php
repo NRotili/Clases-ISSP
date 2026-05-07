@@ -14,20 +14,11 @@ if(isset($_POST['enviar'])){
     //     ));
     // }
 
-<<<<<<< HEAD
-    // // print_r($items);
-    // foreach ($items as $item) {
-    //     # code...
-    //     echo $item['code']."<br>";
-    //     echo $item['price']."<br>";
-    //     echo $item['qty']."<br>";
-=======
     // print_r($items);
     // for($i=0; $i<count($items); $i++){
     //     echo $items[$i]['code'] . "<br>";
     //     echo $items[$i]['price'] . "<br>";
     //     echo $items[$i]['qty'] . "<br>";
->>>>>>> 707beb31161da97b8bce617340fe02e4c1d6eab8
     // }
 }
 ?>

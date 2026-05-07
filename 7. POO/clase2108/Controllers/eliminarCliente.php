@@ -7,3 +7,5 @@ $idCliente = $_POST['id'];
 
 $cliente = Cliente::obtenerPorId($idCliente);
 $cliente->eliminar();
+
+header("Location: ".$_SERVER['HTTP_REFERER']);

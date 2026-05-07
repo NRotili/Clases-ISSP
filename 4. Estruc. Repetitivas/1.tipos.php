@@ -104,9 +104,9 @@ $alumnos = [
         "nombre" => "Pedro",
         "edad" => 20,
         "notas" => [
-            "Mate" => 10,
-            "Fisica" => 8,
-            "Ingles" => 7
+            "mate" => 10,
+            "fisica" => 8,
+            "ingles" => 7
         ]
     ],
     [
@@ -114,20 +114,30 @@ $alumnos = [
         "edad" => 20,
         "notas" => [
             "mate" => 10,
-            "fisica" => 8,
-            "ingles" => 7
+            "Fisica" => 8,
+            "Ingles" => 7
         ]
     ]
 ];
 
-// //Foreach Alumnos
+//Foreach Alumnos
 // foreach ($alumnos as $alumno) {
+    
 //     echo "Nombre: ".$alumno['nombre']." <br>";
 //     echo "Edad: ".$alumno['edad']." <br>";
 //     echo "Notas: <br>";
 //     echo "Mate: ".$alumno['notas']['mate']."<br>";
 //     echo "Fisica: ".$alumno['notas']['fisica']." <br>";
 //     echo "Ingles: ".$alumno['notas']['ingles']." <br>";
+//     echo "<hr>";
+// }
+
+// foreach ($alumnos as $key => $alumno) {
+//     echo $key . ": ". $alumno['nombre'] . "<br>";
+//     echo $key . ": ". $alumno['edad']. "<br>";
+//     foreach ($alumno['notas'] as $key => $nota){
+//         echo $key . ":". $nota. "<br>";
+//     }
 //     echo "<hr>";
 // }
 
@@ -146,17 +156,18 @@ $alumnos = [
 
 // $i = 0;
 // while (++$i) {
-//     switch ($i) { // recibo 10
-//         case 5:
-//             echo "En 5, salgo del switch pero 
-//             continúo ejecutando el while.<br />";
-//             break 1;
-//         case 10:
-//             echo "En 10; salgo del switch y del while.<br />";
-//             break 2;
-//         default:
-//             break;
-//     }
+    
+    // switch ($i) { // recibo 10
+    //     case 5:
+    //         echo "En 5, salgo del switch pero 
+    //         continúo ejecutando el while.<br />";
+    //         break 1;
+    //     case 10:
+    //         echo "En 10; salgo del switch y del while.<br />";
+    //         break 2;
+    //     default:
+    //         break;
+    // }
 // }
 
 //mostrar valores pares for y continue
@@ -181,8 +192,9 @@ $alumnos = [
 //     return $num1 + $num2;
 // }
 
-// include_once "2.incluirOK.php";
-// // echo $informacion['nombre'];
+include_once "2.incluir.php";
+echo $informacion['nombre'];
+
 
 // // require "2.incluirOK.php";
 // echo "Hola después de require";
@@ -201,12 +213,12 @@ $alumnos = [
 //     $numero++;
 // }
 
-$arregloEjercicio = [];
-for ($i=0; $i < 50; $i++) { 
-    # code...
-    // $arregloDe50Numeros[$i] = rand(1,10);
-    array_push($arregloEjercicio, rand(1,10));
-}
+// $arregloEjercicio = [];
+// for ($i = 0; $i < 50; $i++) {
+//     # code...
+//     // $arregloDe50Numeros[$i] = rand(1,10);
+//     array_push($arregloEjercicio, rand(1, 10));
+// }
 
 // $contador = 0;
 // foreach ($arregloEjercicio as $numero){
@@ -231,9 +243,6 @@ for ($i=0; $i < 50; $i++) {
 //     return $numero == 5;
 // });
 
-var_dump($arregloEjercicio);
+// var_dump($arregloEjercicio);
 
-echo array_search(5, $arregloEjercicio);
-
-
-
+// echo array_search(5, $arregloEjercicio);

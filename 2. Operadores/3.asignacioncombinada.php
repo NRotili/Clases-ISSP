@@ -6,19 +6,19 @@ $numero = 10;
 $numero++;
 echo "número: $numero <br>";
 
-// Operador de decremento
+// // Operador de decremento
 $numero--;
 echo "número: $numero <br>";
 
-// Operador de incremento en 2
+// // Operador de incremento en 2
 $numero += 2;
 echo "número: $numero <br>";
 
-//Operador de decremento en 3
-$numero -= 3;
+// //Operador de decremento en 3
+$numero -= $numero;
 echo "número: $numero <br>";
 
-// Operador de concatenación
-$nombre = "Nicolás";
-$apellido = "Rotili";
-$nombreCompleto = $nombre . " " . $apellido;
+// // Operador de concatenación
+// $nombre = "Nicolás";
+// $apellido = "Rotili";
+// $nombreCompleto = $nombre . " " . $apellido;

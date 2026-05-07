@@ -4,12 +4,12 @@ $nombre = "Rotili";
 $apellido = "Rotili";
 $edad = "18";
 
-//Condicional IF
-if ($nombre == "Nicolás") {
-    echo "Nombre correcto <br>";
-} else {
-    echo "Nombre incorrecto <br>";
-}
+// //Condicional IF
+// if ($nombre == "Nicolás") {
+//     echo "Nombre correcto <br>";
+// } else {
+//     echo "Nombre incorrecto <br>";
+// }
 
 // Condicional IF ternario
 // echo (($edad >= 18) ? "Mayor de edad" : "Menor de edad") . "<br>";
@@ -37,14 +37,14 @@ if ($nombre == "Nicolás") {
 
 $oficial = 216;
 $dolarHoy = $oficial * 1.65;
-// //Compra o venta de dolares?
-// if ($dolarHoy<= 357) {
-//     echo "Comprar dólares <br>";
-// } elseif ($dolarHoy>= 400) {
-//     echo "Vender dólares <br>";
-// } else {
-//     echo "No hacer nada <br>";
-// }
+//Compra o venta de dolares?
+if ($dolarHoy<= 357) {
+    echo "Comprar dólares <br>";
+} elseif ($dolarHoy>= 400) {
+    echo "Vender dólares <br>";
+} else {
+    echo "No hacer nada <br>";
+}
 
 // switch (true) {
 //     case ($dolarHoy <= 357):

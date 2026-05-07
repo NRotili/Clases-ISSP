@@ -10,7 +10,7 @@ class Persona {
 
     }
 
-    public function setEdad($edad) {
+    public function setearEdad($edad) {
         $this->edad = $edad;
     }
 

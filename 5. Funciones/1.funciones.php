@@ -1,21 +1,21 @@
 <?php
 
 declare(strict_types=1);
-
-// function bienvenida(string $usuario = 'Invitado'):string{
-//     return "Bienvenido $usuario";
-// }
-// echo bienvenida('Nico');
+function bienvenida(string $usuario = 'Invitado'):string{
+    return "Bienvenido $usuario";
+}
+echo bienvenida('Nico');
 
 // function bienvenida($usuario = 'Invitado'){
-//     echo "Bienvenido $usuario";
+//     return "Bienvenido $usuario";
 // }
-// bienvenida();
+// echo bienvenida();
+// $saludo = bienvenida();
+// echo $saludo;
 
 
 function sumar(...$numeros)
 { 
-
     $resultado = 0;
     foreach ($numeros as $numero) {
         $resultado += $numero;
@@ -29,7 +29,8 @@ echo sumar(2,2,3);
 
 // function sumar(int $numero1, int $numero2): int
 // {
-//     return $numero1 + $numero2;
+//     $resultado = $numero1 + $numero2;
+//     return $resultado;
 // }
 // echo sumar(1, 2);
 
@@ -92,3 +93,9 @@ echo sumar(2,2,3);
 
 // echo potencia(2, 32);
 
+function potencia($base, $exponente){
+    for ($i=0; $i < $exponente ; $i++) { 
+        $resultado = $resultado * $base;
+    }
+    return $resultado;
+}

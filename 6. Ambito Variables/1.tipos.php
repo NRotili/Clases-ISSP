@@ -1,14 +1,14 @@
 <?php
 
 //Variable local.
-// $varLocal = "Hola<br>";
-// function miFuncion()
-// {
-//     // $varLocal = "Hola desde función <br>";
-//     echo $varLocal;
-// }
-// miFuncion();
-// echo $varLocal; 
+$varLocal = "Hola<br>";
+function miFuncion()
+{
+    $varLocal = "Hola desde función <br>";
+    echo $varLocal;
+}
+miFuncion();
+echo $varLocal; 
 
 
 // //Variable global.
@@ -16,12 +16,19 @@ $varGlobal = "Hola <br>";
 echo $varGlobal;
 function miFuncion2()
 {
-    // global $varG lobal;
-    $GLOBALS['varGlobal'] = "Hola desde función <br>";
-    // $varGlobal = "Hola desde función <br>";
+    // $GLOBALS['varGlobal'] = "Hola desde función <br>";
+    global $varGlobal;
+    $varGlobal = "Hola desde función <br>";
 }
 miFuncion2();
 echo $varGlobal;
+
+
+$tipoDeVoz = 'Chillona';
+function voz(){
+    global $tipoDeVoz;
+    echo $tipoDeVoz;
+}
 
 
 // $a = 1;
@@ -55,11 +62,11 @@ echo $varGlobal;
 
 
 //Variable superglobal.
-// $_SERVER["SERVER_NAME"];
-// $_REQUEST["nombre"];
-// $_POST["nombre"];
-// $_GET["nombre"];
-// $_FILES["archivo"];
-// $_ENV["NAME"];
-// $_COOKIE["nombre"];
-// $_SESSION["nombre"];
+$_SERVER["SERVER_NAME"];
+$_REQUEST["nombre"];
+$_POST["nombre"];
+$_GET["nombre"];
+$_FILES["archivo"];
+$_ENV["NAME"];
+$_COOKIE["nombre"];
+$_SESSION["nombre"];

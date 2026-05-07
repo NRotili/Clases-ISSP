@@ -82,7 +82,7 @@
     $('#itemcode').keypress(function(e) {
         if(e.keyCode==13){
             e.preventDefault();
-            $('#itemname').focus();
+            alert('No se puede apretar enter!')
         }
     });
     $('#itemname').keypress(function(e) {

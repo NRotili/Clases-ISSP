@@ -2,16 +2,18 @@
 
 // //Debilmente tipado - no hace falta declarar el tipo de dato
 
-// $nombre = "Nicolás"; //string
-// $apellido = "-Rotili"; //string
-// $nombreCompleto = "$nombre y $apellido"; //Nicolas y -Rotili
+$nombre = "Nicolás"; //string
+$apellido = "-Rotili"; //string
+$nombreCompleto = "$nombre y $apellido"; //Nicolas y -Rotili
 // $nombreCompleto = $nombre . " " . $apellido;  //$nombre $apellido
-// $edad = 28; //int
-// $altura = 1.70; //float
-// $casado = false; //boolean
-// $hijos = null; //null
+$edad = 28; //int
+$altura = 1.70; //float
+$casado = false; //boolean
+$hijos = null; //null
 
-// echo "Nombre completo: $nombreCompleto2 <br>";
+// var_dump($altura);
+
+// echo "Nombre completo: $nombreCompleto <br>";
 // echo "Edad: $edad <br>";
 // echo "Altura: $altura <br>";
 // echo "Casado: $casado <br>";
@@ -19,29 +21,32 @@
 // echo "<hr>";
 
 // // Array unidimensional
-// $datos = array("Nicolás Rotili", 28, 1.70, true, null);
-// $datos = ["Nicolás Rotili", 28, 1.70, true, null];
+// $datos = array("Nicolás Rotili", 28, 1.70, false, null);
+// // $datos = ["Nicolás Rotili", 28, 1.70, true, null];
 
-// echo "Array unidimensional: <br>";
+// // echo "Array unidimensional: <br>";
 // // echo "Nombre completo: $datos[0] <br>";
 // // echo "Edad: $datos[1] <br>";
 // // echo "Altura: $datos[2] <br>";
 // // echo "Casado: $datos[3] <br>";
 // // echo $datos;
+// // var_dump($datos);
 // var_dump($datos);
-// echo "<hr>";
+// // echo "<hr>";
 
 
 
-// // Array asociativo
-// $datos = array(
-//     "nombre" => "Nicolás",
-//     "apellido" => "Rotili",
-//     "edad" => 28,
-//     "altura" => 1.70,
-//     "casado" => false,
-//     "hijos" => null,
-// );
+// Array asociativo
+$datos = array(
+    "nombre" => "Nicolás", 
+    "apellido" => "Rotili",
+    "edad" => 28,
+    "altura" => 1.70,
+    "casado" => false,
+    "hijos" => null,
+);
+// var_dump($datos);
+// echo $datos["nombre"];
 
 // $datos = [
 //     "nombre" => "Nicolás",
@@ -97,14 +102,15 @@ $coches = [
 ];
 
 
-// // var_dump($coches);
-// echo "Array multidimensional: <br>";
-// echo "Marca: ".$coches[0]['marca']." <br>";
+// var_dump($coches);
+echo "Array multidimensional: <br>";
+echo "Marca: ".$coches[0]['marca']." <br>";
 // echo "Modelo: ". $coches[0]['modelo']." <br>";
-echo "Modelo: ". $coches[0]['domicilio']['categoria']." <br>";
+// echo "Modelo: ". $coches[0]['domicilio']['categoria']." <br>";
 // // var_dump($coches[0]['domicilio']);
 // echo "Año: ". $coches[0]['año']." <br>";
-// echo "Marca: ". $coches[1]['marca']." <br>";
+echo "Marca: ". $coches[1]['marca']." <br>";
 // echo "Modelo: ". $coches[1]['modelo']." <br>";
 // echo "Año: ". $coches[1]['año']." <br>";
+echo $coches[0]['domicilio']['empresa'];
 echo "<hr>";
