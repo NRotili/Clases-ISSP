@@ -27,12 +27,12 @@ echo sumar(2,2,3);
 
 // echo sumar(1, 2, 3, 4, 5, 6, 7);
 
-// function sumar(int $numero1, int $numero2): int
-// {
-//     $resultado = $numero1 + $numero2;
-//     return $resultado;
-// }
-// echo sumar(1, 2);
+function sumar(int $numero1, int $numero2): int
+{
+    $resultado = $numero1 + $numero2;
+    return $resultado;
+}
+echo sumar(1, 2);
 
 // date_default_timezone_set('America/Argentina/Buenos_Aires');
 // $date = new DateTime();
