@@ -18,7 +18,27 @@ class Usuario extends Conexion {
     //DELETE FROM usuarios WHERE `usuarios`.`id` = 9
     public function eliminar(){
         $this->conectar();
-        
+        $preparacion = mysqli_prepare($this->conexion, "DELETE FROM usuarios WHERE id = ?");
+        $preparacion->bind_param("i", $this->id);
+        $preparacion->execute();
+    }
+
+    //UPDATE usuarios SET nombre = ?, edad = ?, password = ?, dni = ? WHERE id = ?;
+    public function actualizar(){
+        $this->conectar();
+        $preparacion = mysqli_prepare($this->conexion, "UPDATE usuarios SET nombre = ?, edad = ?, password = ?, dni = ? WHERE id = ?");
+        $preparacion->bind_param("sissi", $this->nombre, $this->edad, $this->password, $this->dni, $this->id);
+        $preparacion->execute();
+    }
+
+    public static function obtenerPorId($id){
+        $conexionAMysql = new Conexion();
+        $conexionAMysql->conectar();
+        $preparacion = mysqli_prepare($conexionAMysql->conexion, "SELECT * FROM usuarios WHERE id = ?");
+        $preparacion->bind_param("i", $id);
+        $preparacion->execute();
+        $resultadoDeLaBusqueda = $preparacion->get_result();
+        return $resultadoDeLaBusqueda->fetch_object(Usuario::class);
     }
 
 
