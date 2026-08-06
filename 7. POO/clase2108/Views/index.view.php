@@ -60,7 +60,7 @@
                                         <a href="editarCliente.php?idCliente=<?= $cliente->id ?>">Editar</a>
 
                                         <form action="eliminarCliente.php" method="POST">
-                                            <input type="hidden" name="id" value="<?= $cliente->id ?>">
+                                            <input type="text" name="id" value="<?= $cliente->id ?>">
                                             <button type="submit">Eliminar</button>
                                         </form>
                                     </td>

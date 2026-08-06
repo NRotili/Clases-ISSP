@@ -1,6 +1,7 @@
 <?php
-
-require_once 'Conexion.php';
+// C:\xampp\htdocs\Clases-ISSP\7. POO\clase0705\Controllers
+require_once __DIR__ . '/../Models/Conexion.php';
+// require_once 'Conexion.php';
 
 class Usuario extends Conexion {
 
@@ -39,6 +40,23 @@ class Usuario extends Conexion {
         $preparacion->execute();
         $resultadoDeLaBusqueda = $preparacion->get_result();
         return $resultadoDeLaBusqueda->fetch_object(Usuario::class);
+    }
+
+    public static function obtenerTodos(){
+        $conexionAMysql = new Conexion();
+        $conexionAMysql->conectar();
+        $preparacion = mysqli_prepare($conexionAMysql->conexion, "SELECT * FROM usuarios");
+        $preparacion->execute();
+        $resultadoDeLaBusqueda = $preparacion->get_result();
+
+        $usuarios = [];
+        while ($usuario = $resultadoDeLaBusqueda->fetch_object(Usuario::class)){
+
+            array_push($usuarios, $usuario);
+
+        }
+
+        return $usuarios;
     }
 
 
