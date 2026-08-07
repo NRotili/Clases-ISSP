@@ -11,6 +11,7 @@
 <body>
 
     <div class="container">
+        
         <table class="table">
             <thead>
                 <tr>
@@ -30,11 +31,15 @@
                         <td><?= $usuario->dni ?></td>
                         <td><?= $usuario->password ?></td>
                         <td>
-                            <form action="eliminarUsuario.php" method="POST">
-                                <input type="hidden" name="usuarioId" value="<?= $usuario->id ?>">
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </form>
+                            <div class="btn-group">
 
+                                <a href="editarUsuario.php?id=<?= $usuario->id ?>" class="btn btn-info">Editar</a>
+                                <form action="eliminarUsuario.php" method="POST">
+                                    <input type="hidden" name="usuarioId" value="<?= $usuario->id ?>">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </div>
+                                
                         </td>
                     </tr>
                 <?php    }
