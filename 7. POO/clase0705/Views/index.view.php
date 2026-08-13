@@ -33,7 +33,7 @@
                         <td>
                             <div class="btn-group">
 
-                                <a href="editarUsuario.php?id=<?= $usuario->id ?>" class="btn btn-info">Editar</a>
+                                <a href="editarUsuario.php?rabanito=<?= $usuario->id ?>" class="btn btn-info">Editar</a>
                                 <form action="eliminarUsuario.php" method="POST">
                                     <input type="hidden" name="usuarioId" value="<?= $usuario->id ?>">
                                     <button type="submit" class="btn btn-danger">Eliminar</button>

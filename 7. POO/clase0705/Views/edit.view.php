@@ -17,7 +17,7 @@
 
         <div class="row">
             <label for="dni">DNI</label>
-            <input type="text" id="dni" name="dni" value="<?= $usuario->dni ?>">
+            <input type="text" id="dni" name="limon" value="<?= $usuario->dni ?>">
         </div>
 
         <div class="row">
