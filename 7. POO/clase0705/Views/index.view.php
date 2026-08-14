@@ -19,6 +19,7 @@
                     <td>Nombre</td>
                     <td>DNI</td>
                     <td>Password</td>
+                    <td>CIUDAD</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
@@ -30,6 +31,7 @@
                         <td><?= $usuario->nombre ?></td>
                         <td><?= $usuario->dni ?></td>
                         <td><?= $usuario->password ?></td>
+                        <td><?php echo $usuario->ciudad()->nombre; ?></td>
                         <td>
                             <div class="btn-group">
 

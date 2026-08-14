@@ -1,12 +1,13 @@
 <?php
 // C:\xampp\htdocs\Clases-ISSP\7. POO\clase0705\Controllers
 require_once __DIR__ . '/../Models/Conexion.php';
+require_once __DIR__ . '/../Models/Ciudad.php';
 // require_once 'Conexion.php';
 
 class Usuario extends Conexion {
 
     #Atributos
-    public $id, $nombre, $dni, $edad, $password;
+    public $id, $nombre, $dni, $edad, $password, $id_ciudad;
     #Métodos
     //CRUD o ABM
     public function crear(){
@@ -57,6 +58,10 @@ class Usuario extends Conexion {
         }
 
         return $usuarios;
+    }
+
+    public function ciudad(){
+        return Ciudad::obtenerPorId($this->id_ciudad);
     }
 
 
