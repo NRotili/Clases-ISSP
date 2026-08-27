@@ -4,7 +4,7 @@ require_once __DIR__ . '/../Models/Conexion.php';
 class Ciudad extends Conexion
 {
 
-    public $id, $cod_postal, $nombre;
+    public $id, $cod_postal, $nombre, $id_provincia;
 
     public static function obtenerPorId($id)
     {
@@ -28,5 +28,9 @@ class Ciudad extends Conexion
             array_push($usuarios, $usuario);
         }
         return $usuarios;
+    }
+
+    public function provincia(){
+        return Provincia::obtenerPorId($this->id_provincia);
     }
 }

@@ -8,6 +8,7 @@ class Usuario extends Conexion {
 
     #Atributos
     public $id, $nombre, $dni, $edad, $password, $id_ciudad;
+
     #Métodos
     //CRUD o ABM
     public function crear(){
@@ -52,16 +53,16 @@ class Usuario extends Conexion {
 
         $usuarios = [];
         while ($usuario = $resultadoDeLaBusqueda->fetch_object(Usuario::class)){
-
             array_push($usuarios, $usuario);
-
         }
 
         return $usuarios;
     }
 
     public function ciudad(){
-        return Ciudad::obtenerPorId($this->id_ciudad);
+        $ciudad = Ciudad::obtenerPorId($this->id_ciudad);
+        return  $ciudad;
+       
     }
 
 
