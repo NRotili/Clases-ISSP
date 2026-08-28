@@ -33,4 +33,19 @@ class Ciudad extends Conexion
     public function provincia(){
         return Provincia::obtenerPorId($this->id_provincia);
     }
+
+    public static function obtenerTodos(){
+        $conexionAMysql = new Conexion();
+        $conexionAMysql->conectar();
+        $preparacion = mysqli_prepare($conexionAMysql->conexion, "SELECT * FROM ciudades");
+        $preparacion->execute();
+        $resultadoDeLaBusqueda = $preparacion->get_result();
+
+        $ciudades = [];
+        while ($ciudad = $resultadoDeLaBusqueda->fetch_object(Ciudad::class)){
+            array_push($ciudades, $ciudad);
+        }
+
+        return $ciudades;
+    }
 }
