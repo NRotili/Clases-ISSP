@@ -29,7 +29,7 @@
                         <td><?= $ciudad->id ?></td>
                         <td><?= $ciudad->cod_postal ?></td>
                         <td><?= $ciudad->nombre ?></td>
-                        <td><?= $ciudad->id_provincia ?></td>
+                        <td><?= $ciudad->provincia()->nombre ?></td>
 
                         <td>
                             

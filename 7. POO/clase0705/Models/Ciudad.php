@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../Models/Conexion.php';
+require_once __DIR__ . '/../Models/Provincia.php';
 
 class Ciudad extends Conexion
 {
@@ -47,5 +48,12 @@ class Ciudad extends Conexion
         }
 
         return $ciudades;
+    }
+
+    public function crear(){
+        $this->conectar();
+        $preparacion = mysqli_prepare($this->conexion, "INSERT INTO `ciudades` (`nombre`, `cod_postal`, `id_provincia`) VALUES (?, ?, ?)");
+        $preparacion->bind_param("ssi", $this->nombre, $this->cod_postal, $this->id_provincia);
+        $preparacion->execute();
     }
 }

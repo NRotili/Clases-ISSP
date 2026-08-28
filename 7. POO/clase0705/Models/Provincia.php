@@ -30,4 +30,19 @@ class Provincia extends Conexion {
         return $resultadoDeLaBusqueda->fetch_object(Provincia::class);
     }
 
+     public static function obtenerTodos(){
+        $conexionAMysql = new Conexion();
+        $conexionAMysql->conectar();
+        $preparacion = mysqli_prepare($conexionAMysql->conexion, "SELECT * FROM provincias");
+        $preparacion->execute();
+        $resultadoDeLaBusqueda = $preparacion->get_result();
+
+        $provincias = [];
+        while ($provincia = $resultadoDeLaBusqueda->fetch_object(Provincia::class)){
+            array_push($provincias, $provincia);
+        }
+
+        return $provincias;
+    }
+
 }
