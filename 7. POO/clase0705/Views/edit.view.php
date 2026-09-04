@@ -10,7 +10,7 @@
 <body>
     <form action="actualizarUsuario.php" method="POST">
         <div class="row">
-            <input type="hidden" value="<?=  $usuario->id ?>" name="id">
+            <input type="hidden" value="<?= $usuario->id ?>" name="id">
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" value="<?= $usuario->nombre ?>">
         </div>
@@ -28,6 +28,26 @@
         <div class="row">
             <label for="password">Password</label>
             <input type="text" id="password" name="password" value="<?= $usuario->password ?>">
+        </div>
+
+        <div class="row">
+            <label for="id_ciudad">ID_CIUDAD</label>
+            <select name="id_ciudad" id="">
+
+                <?php foreach ($ciudades as $ciudad) { ?>
+                    <option value="<?= $ciudad->id ?>" <?php 
+
+                        if($usuario->id_ciudad == $ciudad->id) {
+                            echo "selected";
+                        }
+
+                    ?> ><?= $ciudad->nombre ?></option>
+
+                <?php
+                } ?>
+
+            </select>
+            <!-- <input type="number" id="id_provincia" name="id_provincia"> -->
         </div>
 
         <button type="submit">Actualizar datos</button>

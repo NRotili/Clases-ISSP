@@ -2,6 +2,7 @@
 // C:\xampp\htdocs\Clases-ISSP\7. POO\clase0705\Controllers
 require_once __DIR__ . '/../Models/Conexion.php';
 require_once __DIR__ . '/../Models/Ciudad.php';
+require_once __DIR__ . '/../Models/Rol.php';
 // require_once 'Conexion.php';
 
 class Usuario extends Conexion {
@@ -13,8 +14,8 @@ class Usuario extends Conexion {
     //CRUD o ABM
     public function crear(){
         $this->conectar();
-        $preparacion = mysqli_prepare($this->conexion, "INSERT INTO `usuarios` (`nombre`, `dni`, `edad`, `password`) VALUES (?, ?, ?, ?)");
-        $preparacion->bind_param("ssis", $this->nombre, $this->dni, $this->edad, $this->password);
+        $preparacion = mysqli_prepare($this->conexion, "INSERT INTO `usuarios` (`nombre`, `dni`, `edad`, `password`, `id_ciudad`) VALUES (?, ?, ?, ?, ?)");
+        $preparacion->bind_param("ssisi", $this->nombre, $this->dni, $this->edad, $this->password, $this->id_ciudad);
         $preparacion->execute();
     }
 
@@ -29,8 +30,8 @@ class Usuario extends Conexion {
     //UPDATE usuarios SET nombre = ?, edad = ?, password = ?, dni = ? WHERE id = ?;
     public function actualizar(){
         $this->conectar();
-        $preparacion = mysqli_prepare($this->conexion, "UPDATE usuarios SET nombre = ?, edad = ?, password = ?, dni = ? WHERE id = ?");
-        $preparacion->bind_param("sissi", $this->nombre, $this->edad, $this->password, $this->dni, $this->id);
+        $preparacion = mysqli_prepare($this->conexion, "UPDATE usuarios SET nombre = ?, edad = ?, password = ?, dni = ?, id_ciudad = ? WHERE id = ?");
+        $preparacion->bind_param("sissii", $this->nombre, $this->edad, $this->password, $this->dni, $this->id_ciudad, $this->id);
         $preparacion->execute();
     }
 
@@ -63,6 +64,21 @@ class Usuario extends Conexion {
         $ciudad = Ciudad::obtenerPorId($this->id_ciudad);
         return  $ciudad;
        
+    }
+
+    public function roles(){
+        $this->conectar();
+        $preparacion = mysqli_prepare($this->conexion, "SELECT * FROM roles WHERE id IN (SELECT id_rol FROM rol_usuario WHERE id_usuario = ?)");
+        $preparacion->bind_param("i", $this->id);
+        $preparacion->execute();
+        $resultadoDeLaBusqueda = $preparacion->get_result();
+
+        $roles = [];
+        while ($rol = $resultadoDeLaBusqueda->fetch_object(Rol::class)){
+            array_push($roles, $rol);
+        }
+
+        return $roles;
     }
 
 

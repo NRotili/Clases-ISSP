@@ -29,6 +29,17 @@
             <input type="text" id="password" name="password">
         </div>
 
+         <div class="row">
+            <label for="id_ciudad">ID_CIUDAD</label>
+            <select name="id_ciudad" id="">
+
+                <?php foreach ($ciudades as $ciudad) { ?>
+                    <option value="<?= $ciudad->id ?>"><?= $ciudad->nombre ?></option>
+                <?php } ?>
+            </select>
+            <!-- <input type="number" id="id_provincia" name="id_provincia"> -->
+        </div>
+
         <button type="submit">Enviar datos</button>
 
     </form>
