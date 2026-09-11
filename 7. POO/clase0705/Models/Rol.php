@@ -22,4 +22,19 @@ class Rol extends Conexion {
         return $usuarios;
     }
 
+      public static function obtenerTodos(){
+        $conexionAMysql = new Conexion();
+        $conexionAMysql->conectar();
+        $preparacion = mysqli_prepare($conexionAMysql->conexion, "SELECT * FROM roles");
+        $preparacion->execute();
+        $resultadoDeLaBusqueda = $preparacion->get_result();
+
+        $roles = [];
+        while ($rol = $resultadoDeLaBusqueda->fetch_object(Rol::class)){
+            array_push($roles, $rol);
+        }
+
+        return $roles;
+    }
+
 }

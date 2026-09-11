@@ -29,7 +29,7 @@
             <input type="text" id="password" name="password">
         </div>
 
-         <div class="row">
+        <div class="row">
             <label for="id_ciudad">ID_CIUDAD</label>
             <select name="id_ciudad" id="">
 
@@ -37,6 +37,18 @@
                     <option value="<?= $ciudad->id ?>"><?= $ciudad->nombre ?></option>
                 <?php } ?>
             </select>
+            <!-- <input type="number" id="id_provincia" name="id_provincia"> -->
+        </div>
+
+        <div class="row">
+            <label for="id_rol">ID_ROL</label>
+
+
+            <?php foreach ($roles as $rol) { ?>
+                <label for=""><?= $rol->nombre ?></label>
+                <input type="checkbox" name="id_rol[]" value="<?= $rol->id ?>">
+            <?php } ?>
+
             <!-- <input type="number" id="id_provincia" name="id_provincia"> -->
         </div>
 
