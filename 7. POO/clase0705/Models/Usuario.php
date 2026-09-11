@@ -81,5 +81,14 @@ class Usuario extends Conexion {
         return $roles;
     }
 
+    public function asignarRoles($roles){
+        $this->conectar();
+        foreach ($roles as $rol) {
+            $preparacion = mysqli_prepare($this->conexion, "INSERT INTO rol_usuario (id_usuario, id_rol) VALUES (?, ?)");
+            $preparacion->bind_param("ii", $this->id, $rol);
+            $preparacion->execute();
+        }
+    }
+
 
 }

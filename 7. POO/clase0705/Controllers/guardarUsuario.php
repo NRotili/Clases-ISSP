@@ -12,17 +12,21 @@ $password = $_POST['password'];
 $id_ciudad = $_POST['id_ciudad'];
 $id_rol = $_POST['id_rol'];
 
-var_dump($nombre, $dni, $edad, $password, $id_ciudad, $id_rol);
+// var_dump($nombre, $dni, $edad, $password, $id_ciudad, $id_rol);
 
 
-// $usuario = new Usuario();
+$usuario = new Usuario();
 
-// $usuario->nombre = $nombre;
-// $usuario->dni = $dni;
-// $usuario->edad = $edad;
-// $usuario->password = $password;
-// $usuario->id_ciudad = $id_ciudad;
-// $usuario->crear();
-// var_dump($usuario);
+$usuario->nombre = $nombre;
+$usuario->dni = $dni;
+$usuario->edad = $edad;
+$usuario->password = $password;
+$usuario->id_ciudad = $id_ciudad;
+$usuario->crear();
+
+$usuario = Usuario::obtenerPorId($usuario->conexion->insert_id);
+
+$usuario->asignarRoles($id_rol);
+
 
 // header("Location: index.php");
