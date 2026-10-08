@@ -69,8 +69,18 @@
                 items += "</tr>";
 
                 $('#itemlist').append(items);
+
+                clear();
             }
         });
+
+        function clear(){
+            $('#itemcode').val("");
+            $("#itemname").val("");
+            $("#itemprice").val("");
+            $("#itemqty").val("");
+            $('#itemcode').focus();
+        }
     </script>
 
 </body>

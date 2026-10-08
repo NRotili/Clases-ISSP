@@ -24,7 +24,7 @@ Añadir una nueva fuente requiere dos pasos:
 </ul>
 
 <h2>Generación del fichero de definición de la fuente</h2>
-El primer paso consiste en generar un fichero PHP que contenga toda la información que necesita
+El primer paso consiste en generar un fichero JSON que contenga toda la información que necesita
 FPDF; además, el fichero de la fuente deberá comprimirse. Para hacer esto, se distribuye un script
 auxiliar en el directorio makefont del paquete: makefont.php. Contiene la siguiente función:
 <br>
@@ -97,11 +97,11 @@ original fue grande, el tamaño del archivo PDF puede ser altamente reducido.
 <br>
 <br>
 Después de llamar a la función (puede crear un nuevo fichero e incluir makefont.php), se creará un
-fichero .php con el mismo nombre que la fuente. Puede renombrarlo si lo desea. En caso de incluir la
+fichero .json con el mismo nombre que la fuente. Puede renombrarlo si lo desea. En caso de incluir la
 fuente, el fichero se comprime y da lugar a un segundo fichero con extensión .z (excepto si la función
 de compresión no está disponible, puesto que requiere la biblioteca Zlib para PHP). También puede
 renombrarlo, pero, en este caso, tendrá que modificar la variable <code>$file</code> en el fichero
-.php consecuentemente.
+JSON consecuentemente.
 <br>
 <br>
 Ejemplo:
@@ -112,7 +112,7 @@ Ejemplo:
 </span>MakeFont<span class="kw">(</span><span class="str">'c:\\Windows\\Fonts\\comic.ttf'</span><span class="kw">,</span><span class="str">'cp1252'</span><span class="kw">);
 </span>?&gt;</code></pre>
 </div>
-que devuelve los ficheros comic.php y comic.z.
+que devuelve los ficheros comic.json y comic.z.
 <br>
 <br>
 Entonces tendrá que copiar los ficheros generados en el directorio de fuentes. Si
@@ -131,13 +131,13 @@ Por último, para las fuentes TrueType y OpenType, también puede generar los ar
 <h2>Declaración de la fuente en el script</h2>
 El segundo paso es el más simple. Sólo necesita llamar al método <a href='../doc/addfont.htm'>AddFont()</a>:
 <div class="source">
-<pre><code>$pdf<span class="kw">-&gt;</span>AddFont<span class="kw">(</span><span class="str">'Comic'</span><span class="kw">,</span><span class="str">''</span><span class="kw">,</span><span class="str">'comic.php'</span><span class="kw">);
+<pre><code>$pdf<span class="kw">-&gt;</span>AddFont<span class="kw">(</span><span class="str">'Comic'</span><span class="kw">,</span><span class="str">''</span><span class="kw">,</span><span class="str">'comic.json'</span><span class="kw">);
 </span></code></pre>
 </div>
 Y la fuente queda disponible (en los estilos normal y subrayado), lista para usar como las otras.
 Si hubiéramos trabajado con la Comic Sans MS Bold (comicbd.ttf), hubiésemos escrito:
 <div class="source">
-<pre><code>$pdf<span class="kw">-&gt;</span>AddFont<span class="kw">(</span><span class="str">'Comic'</span><span class="kw">,</span><span class="str">'B'</span><span class="kw">,</span><span class="str">'comicbd.php'</span><span class="kw">);
+<pre><code>$pdf<span class="kw">-&gt;</span>AddFont<span class="kw">(</span><span class="str">'Comic'</span><span class="kw">,</span><span class="str">'B'</span><span class="kw">,</span><span class="str">'comicbd.json'</span><span class="kw">);
 </span></code></pre>
 </div>
 
@@ -155,7 +155,7 @@ El script nos devolverá el siguiente informe:
 <br>
 <br>
 Font file compressed: CevicheOne-Regular.z<br>
-Font definition file generated: CevicheOne-Regular.php<br>
+Font definition file generated: CevicheOne-Regular.json<br>
 <br>
 Alternativamente, podríamos haber utilizado la línea de comandos:
 <br>
@@ -172,7 +172,7 @@ Podemos copiar estos dos ficheros en el directorio de fuentes (font) y escribir 
 <span class="kw">require(</span><span class="str">'fpdf.php'</span><span class="kw">);
 
 </span>$pdf <span class="kw">= new </span>FPDF<span class="kw">();
-</span>$pdf<span class="kw">-&gt;</span>AddFont<span class="kw">(</span><span class="str">'CevicheOne'</span><span class="kw">,</span><span class="str">''</span><span class="kw">,</span><span class="str">'CevicheOne-Regular.php'</span><span class="kw">);
+</span>$pdf<span class="kw">-&gt;</span>AddFont<span class="kw">(</span><span class="str">'CevicheOne'</span><span class="kw">,</span><span class="str">''</span><span class="kw">,</span><span class="str">'CevicheOne-Regular.json'</span><span class="kw">);
 </span>$pdf<span class="kw">-&gt;</span>AddPage<span class="kw">();
 </span>$pdf<span class="kw">-&gt;</span>SetFont<span class="kw">(</span><span class="str">'CevicheOne'</span><span class="kw">,</span><span class="str">''</span><span class="kw">,</span>45<span class="kw">);
 </span>$pdf<span class="kw">-&gt;</span>Write<span class="kw">(</span>10<span class="kw">,</span><span class="str">'Enjoy new fonts with FPDF!'</span><span class="kw">);

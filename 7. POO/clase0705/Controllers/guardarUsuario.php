@@ -10,7 +10,7 @@ $dni = $_POST['dni'];
 $edad = $_POST['edad'];
 $password = $_POST['password'];
 $id_ciudad = $_POST['id_ciudad'];
-$id_rol = $_POST['id_rol'];
+$id_roles = $_POST['id_rol'];
 
 // var_dump($nombre, $dni, $edad, $password, $id_ciudad, $id_rol);
 
@@ -26,7 +26,7 @@ $usuario->crear();
 
 $usuario = Usuario::obtenerPorId($usuario->conexion->insert_id);
 
-$usuario->asignarRoles($id_rol);
+$usuario->asignarRoles($id_roles);
 
 
 // header("Location: index.php");

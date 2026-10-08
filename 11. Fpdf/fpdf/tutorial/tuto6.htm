@@ -103,7 +103,7 @@ function </span>PutLink<span class="kw">(</span>$URL<span class="kw">, </span>$t
 
 </span>$html <span class="kw">= </span><span class="str">'Ahora puede imprimir fácilmente texto mezclando diferentes estilos: &lt;b&gt;negrita&lt;/b&gt;, &lt;i&gt;itálica&lt;/i&gt;,
 &lt;u&gt;subrayado&lt;/u&gt;, o ¡ &lt;b&gt;&lt;i&gt;&lt;u&gt;todos a la vez&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;!&lt;br&gt;&lt;br&gt;También puede incluir enlaces en el
-texto, como &lt;a href="http://www.fpdf.org"&gt;www.fpdf.org&lt;/a&gt;, o en una imagen: pulse en el logotipo.'</span><span class="kw">;
+texto, como &lt;a href="https://www.fpdf.org"&gt;www.fpdf.org&lt;/a&gt;, o en una imagen: pulse en el logotipo.'</span><span class="kw">;
 
 </span>$pdf <span class="kw">= new </span>PDF<span class="kw">();
 </span><span class="cmt">// Primera página
@@ -117,7 +117,7 @@ texto, como &lt;a href="http://www.fpdf.org"&gt;www.fpdf.org&lt;/a&gt;, o en una
 </span><span class="cmt">// Segunda página
 </span>$pdf<span class="kw">-&gt;</span>AddPage<span class="kw">();
 </span>$pdf<span class="kw">-&gt;</span>SetLink<span class="kw">(</span>$link<span class="kw">);
-</span>$pdf<span class="kw">-&gt;</span>Image<span class="kw">(</span><span class="str">'logo.png'</span><span class="kw">,</span>10<span class="kw">,</span>12<span class="kw">,</span>30<span class="kw">,</span>0<span class="kw">,</span><span class="str">''</span><span class="kw">,</span><span class="str">'http://www.fpdf.org'</span><span class="kw">);
+</span>$pdf<span class="kw">-&gt;</span>Image<span class="kw">(</span><span class="str">'logo.png'</span><span class="kw">,</span>10<span class="kw">,</span>12<span class="kw">,</span>30<span class="kw">,</span>0<span class="kw">,</span><span class="str">''</span><span class="kw">,</span><span class="str">'https://www.fpdf.org'</span><span class="kw">);
 </span>$pdf<span class="kw">-&gt;</span>SetLeftMargin<span class="kw">(</span>45<span class="kw">);
 </span>$pdf<span class="kw">-&gt;</span>SetFontSize<span class="kw">(</span>14<span class="kw">);
 </span>$pdf<span class="kw">-&gt;</span>WriteHTML<span class="kw">(</span>$html<span class="kw">);
